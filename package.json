@@ -5,7 +5,7 @@
   "scripts": {
     "gr": "tsr generate",
     "wr": "tsr watch",
-    "dev": "pnpm run gr && pnpm run wr && vite --port 3000",
+    "dev": "pnpm run gr && vite --port 3000",
     "build": "vite build && tsc",
     "preview": "vite preview",
     "test": "vitest run"
@@ -13,10 +13,12 @@
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-progress": "^1.1.8",
     "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.7.0",
+    "@tanstack/react-query": "^5.90.16",
     "@tanstack/react-router": "^1.132.0",
     "@tanstack/react-router-devtools": "^1.132.0",
     "@tanstack/router-plugin": "^1.132.0",
