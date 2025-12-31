@@ -5,31 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicons/apple-touch-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicons/favicon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicons/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicons/favicon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicons/web-app-manifest-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicons/web-app-manifest-512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/keys.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/password-input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/use-notify.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/login-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/lib/hooks/use-auth-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/lib/hooks/use-login-form.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/lib/service/auth-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/lib/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/lib/validation/login.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/_protected/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/_protected/route.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/_public/login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/_public/route.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/maintenance.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/progress.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/spinner.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-app-state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_public/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_public/route.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +25,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ringoebenezer"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mecsons/srms-app.git",
+    "accountId": "6c314fbd-59f1-4814-a9bd-00de7d0793f0"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="37bf5FAE23mbH1CtbDmA2wPaF4I" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -52,9 +50,10 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/Ringo_Jr/Projects/mecsons/frontend/public",
+    "last_opened_file_path": "/Users/Ringo_Jr/Projects/mecsons/frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,6 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1767176505288</updated>
       <workItem from="1767176506532" duration="6342000" />
+      <workItem from="1767191533810" duration="330000" />
     </task>
     <servers />
   </component>

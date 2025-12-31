@@ -8,3 +8,11 @@ count.txt
 .nitro
 .tanstack
 .wrangler
+.output
+.vinxi
+todos.json
+/.vscode/
+/.idea/compiler.xml
+/.idea/
+/.idea/workspace.xml
+.idea/workspace.xml
