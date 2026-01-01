@@ -32,7 +32,7 @@ export function UpsertStudent({gradeId}: Props) {
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
                     <DialogTitle>Add Student</DialogTitle>
-                    <DialogDescription>Fill in the student details.</DialogDescription>
+                    <DialogDescription>Fill in the student details</DialogDescription>
                 </DialogHeader>
 
                 <form onSubmit={onSubmit}>
