@@ -1,4 +1,4 @@
-import {LayoutDashboard} from "lucide-react";
+import {LayoutDashboard, GraduationCap} from "lucide-react";
 import type {NavigationItemInterface} from "@/modules/navigation/types.ts";
 
 export const navItems:Record<string, NavigationItemInterface> = {
@@ -6,5 +6,10 @@ export const navItems:Record<string, NavigationItemInterface> = {
         path: "/",
         title: "Home",
         icon: LayoutDashboard,
+    },
+    students: {
+        path: "/students",
+        title: "Students",
+        icon: GraduationCap,
     },
 };

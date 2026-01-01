@@ -7,5 +7,9 @@ export function getNavItems(): NavigationGroup[] {
             label: "Overview",
             items: [navItems.home],
         },
+        {
+            label: "Students",
+            items: [navItems.students],
+        },
     ]
 }

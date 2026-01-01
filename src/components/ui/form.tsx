@@ -27,7 +27,7 @@ export function FormField<T extends FieldValues>({...props}: FormFieldProps<T>) 
                 const error = fieldState.error;
 
                 return (
-                    <Field className={noWrapper ? "w-0 [&>*]:w-0 flex-none" : undefined} data-invalid={invalid}>
+                    <Field className={noWrapper ? "w-0 *:w-0 flex-none" : undefined} data-invalid={invalid}>
                         {label && <FieldLabel htmlFor={name}>{label}</FieldLabel>}
                         {render({field, fieldState})}
                         {description && <FieldDescription>{description}</FieldDescription>}

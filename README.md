@@ -1,1 +1,1 @@
-Mecsons | SRMS
+Mecsons · SRMS

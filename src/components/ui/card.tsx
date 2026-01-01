@@ -2,17 +2,33 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+type CardVariant = "default" | "action";
+
+interface CardProps extends React.ComponentProps<"div"> {
+  variant?: CardVariant;
+}
+
+function Card({className, variant = "default", ...props}: CardProps) {
+  const isAction = variant === "action";
+
   return (
-    <div
-      data-slot="card"
-      className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
-        className
-      )}
-      {...props}
-    />
-  )
+      <div
+          data-slot="card"
+          className={cn(
+              "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm transition-colors",
+              isAction && [
+                "cursor-pointer",
+                "hover:shadow-md",
+                "focus-visible:outline-none",
+                "focus-visible:ring-2",
+                "focus-visible:ring-ring",
+                "focus-visible:ring-offset-2",
+              ],
+              className
+          )}
+          {...props}
+      />
+  );
 }
 
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {

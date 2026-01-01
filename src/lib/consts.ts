@@ -1,0 +1,1 @@
+export const TANZANIA_PHONE_NUMBER_REGEX = /^(\+?255|0)?[67]\d{8}$/;

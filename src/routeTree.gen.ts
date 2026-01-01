@@ -13,6 +13,8 @@ import { Route as PublicRouteRouteImport } from './routes/_public/route'
 import { Route as ProtectedRouteRouteImport } from './routes/_protected/route'
 import { Route as ProtectedIndexRouteImport } from './routes/_protected/index'
 import { Route as PublicLoginRouteImport } from './routes/_public/login'
+import { Route as ProtectedStudentsIndexRouteImport } from './routes/_protected/students/index'
+import { Route as ProtectedStudentsGradeIdRouteImport } from './routes/_protected/students/$gradeId'
 
 const PublicRouteRoute = PublicRouteRouteImport.update({
   id: '/_public',
@@ -32,14 +34,29 @@ const PublicLoginRoute = PublicLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => PublicRouteRoute,
 } as any)
+const ProtectedStudentsIndexRoute = ProtectedStudentsIndexRouteImport.update({
+  id: '/students/',
+  path: '/students/',
+  getParentRoute: () => ProtectedRouteRoute,
+} as any)
+const ProtectedStudentsGradeIdRoute =
+  ProtectedStudentsGradeIdRouteImport.update({
+    id: '/students/$gradeId',
+    path: '/students/$gradeId',
+    getParentRoute: () => ProtectedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/login': typeof PublicLoginRoute
   '/': typeof ProtectedIndexRoute
+  '/students/$gradeId': typeof ProtectedStudentsGradeIdRoute
+  '/students': typeof ProtectedStudentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof PublicLoginRoute
   '/': typeof ProtectedIndexRoute
+  '/students/$gradeId': typeof ProtectedStudentsGradeIdRoute
+  '/students': typeof ProtectedStudentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -47,18 +64,22 @@ export interface FileRoutesById {
   '/_public': typeof PublicRouteRouteWithChildren
   '/_public/login': typeof PublicLoginRoute
   '/_protected/': typeof ProtectedIndexRoute
+  '/_protected/students/$gradeId': typeof ProtectedStudentsGradeIdRoute
+  '/_protected/students/': typeof ProtectedStudentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/login' | '/'
+  fullPaths: '/login' | '/' | '/students/$gradeId' | '/students'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/'
+  to: '/login' | '/' | '/students/$gradeId' | '/students'
   id:
     | '__root__'
     | '/_protected'
     | '/_public'
     | '/_public/login'
     | '/_protected/'
+    | '/_protected/students/$gradeId'
+    | '/_protected/students/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -96,15 +117,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicLoginRouteImport
       parentRoute: typeof PublicRouteRoute
     }
+    '/_protected/students/': {
+      id: '/_protected/students/'
+      path: '/students'
+      fullPath: '/students'
+      preLoaderRoute: typeof ProtectedStudentsIndexRouteImport
+      parentRoute: typeof ProtectedRouteRoute
+    }
+    '/_protected/students/$gradeId': {
+      id: '/_protected/students/$gradeId'
+      path: '/students/$gradeId'
+      fullPath: '/students/$gradeId'
+      preLoaderRoute: typeof ProtectedStudentsGradeIdRouteImport
+      parentRoute: typeof ProtectedRouteRoute
+    }
   }
 }
 
 interface ProtectedRouteRouteChildren {
   ProtectedIndexRoute: typeof ProtectedIndexRoute
+  ProtectedStudentsGradeIdRoute: typeof ProtectedStudentsGradeIdRoute
+  ProtectedStudentsIndexRoute: typeof ProtectedStudentsIndexRoute
 }
 
 const ProtectedRouteRouteChildren: ProtectedRouteRouteChildren = {
   ProtectedIndexRoute: ProtectedIndexRoute,
+  ProtectedStudentsGradeIdRoute: ProtectedStudentsGradeIdRoute,
+  ProtectedStudentsIndexRoute: ProtectedStudentsIndexRoute,
 }
 
 const ProtectedRouteRouteWithChildren = ProtectedRouteRoute._addFileChildren(
