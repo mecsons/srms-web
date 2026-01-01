@@ -36,8 +36,7 @@ declare module '@tanstack/react-router' {
     }
 }
 
-const maintenanceMode =
-    import.meta.env.VITE_MAINTENANCE_MODE === "true";
+const maintenanceMode = import.meta.env.VITE_MAINTENANCE_MODE === "true";
 
 const rootElement = document.getElementById("app");
 
