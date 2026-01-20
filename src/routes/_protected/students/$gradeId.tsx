@@ -7,6 +7,7 @@ import {DataTable} from "@/components/ui/data-table.tsx";
 import {SearchInput} from "@/components/ui/search-input.tsx";
 import {createFileRoute, redirect} from '@tanstack/react-router'
 import {getColumns} from "@/modules/student/components/columns.tsx";
+import {Card, CardContent, CardHeader} from "@/components/ui/card.tsx";
 import {UpsertStudent} from '@/modules/student/components/upsert-student.tsx'
 import {useGetStudentsByGrade} from '@/modules/student/lib/hooks/use-student-service.ts'
 
@@ -44,16 +45,20 @@ function StudentList() {
         <Page>
             <PageTitle title={gradeName!} description={"Manage students here"}/>
 
-            <div className="flex justify-between items-center gap-3">
-                <SearchInput search={search} setSearch={setSearch}/>
-                <UpsertStudent gradeId={gradeId}/>
-            </div>
+            <Card>
+                <CardHeader className="flex justify-between items-center gap-3">
+                    <SearchInput search={search} setSearch={setSearch}/>
+                    <UpsertStudent gradeId={gradeId}/>
+                </CardHeader>
 
-            <DataTable
-                data={students}
-                globalFilter={search}
-                columns={getColumns()}
-            />
+                <CardContent>
+                    <DataTable
+                        data={students}
+                        globalFilter={search}
+                        columns={getColumns()}
+                    />
+                </CardContent>
+            </Card>
         </Page>
     )
 }

@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="can now view students">
-      <change beforePath="$PROJECT_DIR$/src/api/keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/keys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-form.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" afterDir="false" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="can now add students too">
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +87,7 @@
       <workItem from="1767191533810" duration="1027000" />
       <workItem from="1767222419264" duration="6881000" />
       <workItem from="1768911350196" duration="1684000" />
-      <workItem from="1768933509792" duration="7713000" />
+      <workItem from="1768933509792" duration="8063000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -156,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768939599598</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="can now add students too">
+      <option name="closed" value="true" />
+      <created>1768941940538</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1768941940538</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +176,7 @@
     <MESSAGE value="fix sidebar" />
     <MESSAGE value="minor change" />
     <MESSAGE value="can now view students" />
-    <option name="LAST_COMMIT_MESSAGE" value="can now view students" />
+    <MESSAGE value="can now add students too" />
+    <option name="LAST_COMMIT_MESSAGE" value="can now add students too" />
   </component>
 </project>
