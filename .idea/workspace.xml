@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="add breadcrumbs">
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/components/auth-guard.tsx" afterDir="false" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="add auth guard">
+      <change beforePath="$PROJECT_DIR$/src/components/ui/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/lib/hooks/use-auth-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/lib/hooks/use-auth-store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/components/site-header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/__root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__root.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/_protected/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/route.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/_public/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_public/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +93,7 @@
       <workItem from="1767191533810" duration="1027000" />
       <workItem from="1767222419264" duration="6881000" />
       <workItem from="1768911350196" duration="1684000" />
-      <workItem from="1768933509792" duration="10578000" />
+      <workItem from="1768933509792" duration="11670000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -180,7 +183,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768944501878</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add the auth guard component">
+      <option name="closed" value="true" />
+      <created>1768944837090</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1768944837090</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add auth guard">
+      <option name="closed" value="true" />
+      <created>1768945017227</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1768945017227</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +217,8 @@
     <MESSAGE value="can now add students too" />
     <MESSAGE value="minor fix" />
     <MESSAGE value="add breadcrumbs" />
-    <option name="LAST_COMMIT_MESSAGE" value="add breadcrumbs" />
+    <MESSAGE value="add the auth guard component" />
+    <MESSAGE value="add auth guard" />
+    <option name="LAST_COMMIT_MESSAGE" value="add auth guard" />
   </component>
 </project>

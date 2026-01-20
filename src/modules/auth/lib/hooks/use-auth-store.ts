@@ -48,11 +48,11 @@ export const useAuthStore = create<IAuthState>((set, get) => {
 });
 
 export const initializeAuth = async () => {
-    const { refreshToken } = useAuthStore.getState();
+    const {refreshToken} = useAuthStore.getState();
     await refreshToken();
 
-    useAuthStore.setState({ loading: false });
+    useAuthStore.setState({loading: false});
 
     const interval = setInterval(refreshToken, 14 * 60 * 1000);
-    useAuthStore.setState({ refreshInterval: interval });
+    useAuthStore.setState({refreshInterval: interval});
 };

@@ -9,7 +9,6 @@ import {initializeAuth} from "@/modules/auth/lib/hooks/use-auth-store.ts";
 
 import {routeTree} from './routeTree.gen'
 import './styles.css'
-import {BreadcrumbProvider} from "@/modules/navigation/lib/context/breadcrumb-context.tsx";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -48,10 +47,8 @@ if (rootElement && !rootElement.innerHTML) {
                 <Maintenance/>
             ) : (
                 <QueryClientProvider client={queryClient}>
-                    <BreadcrumbProvider>
-                        <RouterProvider router={router} context={{queryClient}}/>
-                        <Toaster closeButton richColors position="top-right"/>
-                    </BreadcrumbProvider>
+                    <RouterProvider router={router} context={{queryClient}}/>
+                    <Toaster closeButton richColors position="top-right"/>
                 </QueryClientProvider>
             )}
         </StrictMode>

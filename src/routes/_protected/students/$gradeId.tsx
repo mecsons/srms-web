@@ -1,5 +1,5 @@
 import {z} from "zod"
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Spinner} from '@/components/ui/spinner.tsx'
 import {ErrorAlert} from '@/components/ui/alert.tsx'
 import {Page, PageTitle} from '@/components/ui/page.tsx'
@@ -8,7 +8,6 @@ import {SearchInput} from "@/components/ui/search-input.tsx";
 import {createFileRoute, redirect} from '@tanstack/react-router'
 import {getColumns} from "@/modules/student/components/columns.tsx";
 import {UpsertStudent} from '@/modules/student/components/upsert-student.tsx'
-import {useBreadcrumbs} from "@/modules/navigation/lib/hooks/use-breadcrumbs.ts";
 import {useGetStudentsByGrade} from '@/modules/student/lib/hooks/use-student-service.ts'
 
 const searchSchema = z.object({
@@ -33,20 +32,10 @@ export const Route = createFileRoute('/_protected/students/$gradeId')({
 function StudentList() {
     const {gradeId} = Route.useParams()
     const {gradeName} = Route.useSearch()
-    const {setBreadcrumbs} = useBreadcrumbs();
 
     const [search, setSearch] = useState("");
 
     const {error, isPending, data: students} = useGetStudentsByGrade(gradeId)
-
-    useEffect(() => {
-        setBreadcrumbs([
-            {label: "Students", path: "/students"},
-            {label: gradeName!},
-        ]);
-
-        return () => setBreadcrumbs([]);
-    }, [setBreadcrumbs]);
 
     if (isPending) return <Spinner/>
     if (error) return <ErrorAlert error={error}/>

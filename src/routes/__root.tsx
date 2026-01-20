@@ -5,7 +5,7 @@ import {AuthGuard} from "@/modules/auth/components/auth-guard.tsx";
 export const Route = createRootRoute({
     component: () => (
         <AuthGuard>
-            <Outlet/>
+          <Outlet/>
         </AuthGuard>
     ),
     notFoundComponent: () => <NotFound message={"Page not found"}/>

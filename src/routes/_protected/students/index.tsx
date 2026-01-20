@@ -2,9 +2,9 @@ import {Spinner} from '@/components/ui/spinner.tsx'
 import NotFound from '@/components/ui/not-found.tsx'
 import {ErrorAlert} from '@/components/ui/alert.tsx'
 import {createFileRoute} from '@tanstack/react-router'
+import {Page, PageTitle} from "@/components/ui/page.tsx";
 import GradeCard from '@/modules/grade/components/grade-card.tsx'
 import {useGetAllGrades} from '@/modules/grade/lib/hooks/use-grade-service.ts'
-import {Page, PageTitle} from "@/components/ui/page.tsx";
 
 export const Route = createFileRoute('/_protected/students/')({
     component: StudentsLayout,
@@ -12,6 +12,7 @@ export const Route = createFileRoute('/_protected/students/')({
 
 function StudentsLayout() {
     const navigate = Route.useNavigate()
+
     const {error, isPending, data: grades} = useGetAllGrades()
 
     if (isPending) return <Spinner/>
