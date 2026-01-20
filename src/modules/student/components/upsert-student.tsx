@@ -14,21 +14,24 @@ import {Button} from '@/components/ui/button'
 import {FormField} from '@/components/ui/form.tsx'
 import {FieldGroup} from '@/components/ui/field.tsx'
 import {useStudentForm} from '@/modules/student/lib/hooks/use-student-form.ts'
+import {useState} from "react";
 
 interface Props {
     gradeId: string
 }
 
 export function UpsertStudent({gradeId}: Props) {
-    const {form, onSubmit} = useStudentForm(gradeId)
+    const [open, setOpen] = useState(false);
+
+    const {form, onSubmit} = useStudentForm(gradeId, {onSuccess: () => setOpen(false)});
 
     const formIsSubmitting = form.formState.isSubmitting
 
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button>
-                    <UserRoundPlus />
+                    <UserRoundPlus/>
                     <span className="hidden md:inline">Add Student</span>
                 </Button>
             </DialogTrigger>
