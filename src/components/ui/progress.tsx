@@ -35,17 +35,17 @@ export function LoadingInput() {
 }
 
 export function LoadingOverlay() {
-  return (
-      <div className="fixed inset-0 z-50 bg-black/45 flex items-center justify-center">
-        <Spinner />
-      </div>
-  );
+    return (
+        <div className="absolute inset-0 bg-black/45 z-50 flex items-center justify-center">
+            <Spinner/>
+        </div>
+    );
 }
 
 export function LoadingScreen() {
   return (
-      <div className="flex justify-center items-center h-screen bg-background">
-        <Spinner/>
+      <div className={"bg-background h-screen w-screen grid place-content-center"}>
+          <Spinner/>
       </div>
   );
 }
