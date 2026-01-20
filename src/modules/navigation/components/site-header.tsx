@@ -1,25 +1,63 @@
 import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator
+} from "@/components/ui/breadcrumb";
+import {
     DropdownMenu,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuTrigger,
     DropdownMenuContent,
-    DropdownMenuSeparator,
+    DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu";
 import {LogOut} from "lucide-react";
 import {cn, formatAvatarName} from "@/lib/utils";
-import {useRouter} from "@tanstack/react-router";
+import {Fragment} from "react";
+import {Link, useRouter} from "@tanstack/react-router";
 import {SidebarTrigger} from "@/components/ui/sidebar";
 import {Avatar, AvatarFallback} from "@/components/ui/avatar.tsx";
 import {useCurrentUser} from "@/modules/auth/lib/hooks/use-current-user.ts";
+import {useBreadcrumbs} from "@/modules/navigation/lib/hooks/use-breadcrumbs.ts";
 
 export function SiteHeader({className}: { className?: string }) {
     const {navigate} = useRouter();
     const {currentUser, logout} = useCurrentUser();
+    const {items: breadcrumbs} = useBreadcrumbs();
 
     return (
         <header className={cn("flex justify-between items-center py-2 mb-4 border-b bg-transparent", className)}>
-            <SidebarTrigger/>
+            <div className="flex items-center gap-2">
+                <SidebarTrigger/>
+
+                {breadcrumbs.length > 0 && <div className="mr-1 border-r-2 w-1 h-5"></div>}
+
+                <Breadcrumb>
+                    <BreadcrumbList>
+                        {breadcrumbs.map((b, i) => (
+                            <Fragment key={`${b.label}-${i}`}>
+                                {b.path ? (
+                                    <BreadcrumbItem>
+                                        <BreadcrumbLink asChild>
+                                            <Link to={b.path} params={b.params}>
+                                                {b.label}
+                                            </Link>
+                                        </BreadcrumbLink>
+                                    </BreadcrumbItem>
+                                ) : (
+                                    <BreadcrumbItem>
+                                        <BreadcrumbPage>{b.label}</BreadcrumbPage>
+                                    </BreadcrumbItem>
+                                )}
+                                {i < breadcrumbs.length - 1 && <BreadcrumbSeparator/>}
+                            </Fragment>
+                        ))}
+                    </BreadcrumbList>
+                </Breadcrumb>
+            </div>
 
             <div className="flex items-center gap-2">
                 <DropdownMenu>

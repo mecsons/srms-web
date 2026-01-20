@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="can now add students too">
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ui/breadcrumb.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/navigation/lib/context/breadcrumb-context.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/navigation/lib/hooks/use-breadcrumbs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/components/site-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +94,7 @@
       <workItem from="1767191533810" duration="1027000" />
       <workItem from="1767222419264" duration="6881000" />
       <workItem from="1768911350196" duration="1684000" />
-      <workItem from="1768933509792" duration="8063000" />
+      <workItem from="1768933509792" duration="10243000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -161,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768941940538</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="minor fix">
+      <option name="closed" value="true" />
+      <created>1768942289309</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1768942289309</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +192,7 @@
     <MESSAGE value="minor change" />
     <MESSAGE value="can now view students" />
     <MESSAGE value="can now add students too" />
-    <option name="LAST_COMMIT_MESSAGE" value="can now add students too" />
+    <MESSAGE value="minor fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fix" />
   </component>
 </project>
