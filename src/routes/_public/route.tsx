@@ -10,7 +10,7 @@ function PublicRoute() {
   const isAuthenticated = !!currentUser && !!accessToken;
 
   if (isAuthenticated) {
-    return <Navigate to="/" replace={true}/>;
+    return <Navigate to="/" replace={true}/>
   }
 
   return (

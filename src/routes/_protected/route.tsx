@@ -16,7 +16,9 @@ function ProtectedRoute() {
 
     const appIsLoading = useAppState((s) => s.loading)
 
-    if (!isAuthenticated) return <Navigate to="/login" replace={true}/>
+    if (!isAuthenticated) {
+        return <Navigate to="/login" replace={true}/>
+    }
 
     return (
         <SidebarProvider>
