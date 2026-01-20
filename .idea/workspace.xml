@@ -4,33 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="fix sidebar">
-      <change afterPath="$PROJECT_DIR$/src/components/ui/not-found.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/use-local-storage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/consts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/grade/components/grade-card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/grade/components/select-grade.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/grade/lib/hooks/use-grade-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/grade/lib/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-form.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/student/lib/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/student/lib/validations/student.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/_protected/students/index.tsx" afterDir="false" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/keys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/navigation/lib/consts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/lib/consts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routeTree.gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routeTree.gen.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +21,12 @@
     &quot;assignee&quot;: &quot;ringoebenezer&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/mecsons/srms-app.git&quot;,
-    &quot;accountId&quot;: &quot;6c314fbd-59f1-4814-a9bd-00de7d0793f0&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mecsons/srms-app.git",
+    "accountId": "2dc2d1f2-6614-49b9-b17b-05f01e689a54"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -73,9 +48,11 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
+    "nodejs_interpreter_path": "/Users/ringo_jr/.local/share/mise/installs/node/24/bin/node",
+    "nodejs_package_manager_path": "/Users/ringo_jr/.local/share/mise/installs/pnpm/latest/pnpm",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "/Users/Ringo_Jr/Projects/mecsons/frontend/node_modules/typescript/lib"
+    "ts.external.directory.path": "/Users/ringo_jr/Projects/mecsons/frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -94,7 +71,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.29346.143" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.29346.242" />
       </set>
     </attachedChunks>
   </component>
@@ -108,6 +85,7 @@
       <workItem from="1767176506532" duration="6342000" />
       <workItem from="1767191533810" duration="1027000" />
       <workItem from="1767222419264" duration="6881000" />
+      <workItem from="1768911350196" duration="1580000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
