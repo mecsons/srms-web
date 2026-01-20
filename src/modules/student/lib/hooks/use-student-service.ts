@@ -1,6 +1,6 @@
 import {queryKeys} from "@/api/keys.ts";
 import { api, handleServerError } from '@/api'
-import type {IGrade} from "@/modules/grade/lib/types.ts";
+import type {IStudent} from "@/modules/student/lib/types.ts";
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { type StudentSchemaType } from '@/modules/student/lib/validations/student.ts'
 
@@ -15,7 +15,7 @@ export function useGetStudentsByGrade(gradeId: string) {
 
         const { payload } = response.data
 
-        return payload as IGrade[]
+        return payload as IStudent[]
       } catch (error) {
         handleServerError(error)
       }

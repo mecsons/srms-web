@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ui/data-table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/pagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/search-input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/student/components/columns.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/grade/components/grade-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/grade/components/grade-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +35,12 @@
     &quot;assignee&quot;: &quot;ringoebenezer&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/mecsons/srms-app.git",
-    "accountId": "2dc2d1f2-6614-49b9-b17b-05f01e689a54"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mecsons/srms-app.git&quot;,
+    &quot;accountId&quot;: &quot;2dc2d1f2-6614-49b9-b17b-05f01e689a54&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -43,6 +57,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
     "last_opened_file_path": "/Users/Ringo_Jr/Projects/mecsons/frontend/src/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -85,7 +100,8 @@
       <workItem from="1767176506532" duration="6342000" />
       <workItem from="1767191533810" duration="1027000" />
       <workItem from="1767222419264" duration="6881000" />
-      <workItem from="1768911350196" duration="1580000" />
+      <workItem from="1768911350196" duration="1684000" />
+      <workItem from="1768933509792" duration="5341000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -135,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767274048412</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="minor change">
+      <option name="closed" value="true" />
+      <created>1768917898871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1768917898871</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +172,7 @@
     <MESSAGE value="add favicons" />
     <MESSAGE value="fix things and even add a place for login and logout" />
     <MESSAGE value="fix sidebar" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix sidebar" />
+    <MESSAGE value="minor change" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor change" />
   </component>
 </project>

@@ -8,6 +8,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog'
+import {UserRoundPlus} from "lucide-react";
 import {Input} from '@/components/ui/input'
 import {Button} from '@/components/ui/button'
 import {FormField} from '@/components/ui/form.tsx'
@@ -25,8 +26,11 @@ export function UpsertStudent({gradeId}: Props) {
 
     return (
         <Dialog>
-            <DialogTrigger>
-                <Button variant="outline">Add Student</Button>
+            <DialogTrigger asChild>
+                <Button>
+                    <UserRoundPlus />
+                    <span className="hidden md:inline">Add Student</span>
+                </Button>
             </DialogTrigger>
 
             <DialogContent className="sm:max-w-md">
@@ -53,7 +57,7 @@ export function UpsertStudent({gradeId}: Props) {
                     </FieldGroup>
 
                     <DialogFooter>
-                        <DialogClose>
+                        <DialogClose asChild>
                             <Button variant="outline">Cancel</Button>
                         </DialogClose>
 
