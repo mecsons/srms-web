@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ui/calendar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/date-picker.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/date-range-picker.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/basic-details.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope-details.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/title.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/assessment/lib/hooks/use-assessment-form.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/assessment/lib/validations/assessment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/create.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/edit.$assessmentId.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/keys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/assessment/lib/hooks/use-assessment-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/lib/hooks/use-assessment-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/assessment/lib/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/lib/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/grade/lib/hooks/use-grade-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/grade/lib/hooks/use-grade-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/grade/lib/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/grade/lib/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/student/lib/validations/student.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/lib/validations/student.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/subject/lib/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/subject/lib/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routeTree.gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routeTree.gen.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope-details.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,27 +44,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "development",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "/Users/ringo_jr/Projects/mecsons/frontend/src/components/ui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/Users/ringo_jr/.local/share/mise/installs/node/24/bin/node",
-    "nodejs_package_manager_path": "/Users/ringo_jr/.local/share/mise/installs/pnpm/latest/pnpm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "/Users/ringo_jr/Projects/mecsons/frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ringo_jr/Projects/mecsons/frontend/src/components/ui&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/Users/ringo_jr/.local/share/mise/installs/node/24/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;/Users/ringo_jr/.local/share/mise/installs/pnpm/latest/pnpm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/ringo_jr/Projects/mecsons/frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/ui" />
@@ -118,7 +99,8 @@
       <workItem from="1768933509792" duration="12171000" />
       <workItem from="1768972210105" duration="6973000" />
       <workItem from="1768979382825" duration="5796000" />
-      <workItem from="1769001973241" duration="9526000" />
+      <workItem from="1769001973241" duration="9683000" />
+      <workItem from="1769014951576" duration="2056000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -288,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768995803161</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="prepare for assessment scope section">
+      <option name="closed" value="true" />
+      <created>1769012863239</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1769012863239</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +305,7 @@
     <MESSAGE value="simplify the navigation" />
     <MESSAGE value="can now view assessments" />
     <MESSAGE value="add badge" />
-    <option name="LAST_COMMIT_MESSAGE" value="add badge" />
+    <MESSAGE value="prepare for assessment scope section" />
+    <option name="LAST_COMMIT_MESSAGE" value="prepare for assessment scope section" />
   </component>
 </project>

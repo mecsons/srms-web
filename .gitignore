@@ -13,6 +13,6 @@ count.txt
 todos.json
 /.vscode/
 /.idea/compiler.xml
-/.idea/
 /.idea/workspace.xml
 .idea/workspace.xml
+/.idea/
