@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function ScopeDetails({grades}: Props) {
-    const {control, watch, formState: {isSubmitting}} = useFormContext<AssessmentSchemaType>();
+    const {control, watch, formState: {errors, isSubmitting}} = useFormContext<AssessmentSchemaType>();
 
     const scope = watch("scope") ?? [];
     const [activeGradeId, setActiveGradeId] = useState<string | null>(scope[0]?.gradeId ?? null);
@@ -89,12 +89,21 @@ export default function ScopeDetails({grades}: Props) {
         if (scopeIndex !== -1) remove(scopeIndex);
     };
 
+    const scopeErrorMessage = (errors.scope as any)?.message;
+
     return (
         <div className="flex flex-col gap-6">
             <ScopDetailsTitle/>
 
+            {scopeErrorMessage && (
+                <div
+                    className="rounded-md border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
+                    {scopeErrorMessage}
+                </div>
+            )}
+
             <FieldGroup className="grid grid-cols-1 gap-6 lg:grid-cols-[260px_1fr]">
-                <div className="flex max-h-105 flex-col gap-2 overflow-y-auto pr-1">
+                <div className="flex flex-col gap-2 pr-1">
                     {grades.map((grade) => (
                         <GradeListItem
                             key={grade.id}
