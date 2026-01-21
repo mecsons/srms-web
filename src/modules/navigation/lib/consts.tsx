@@ -1,5 +1,5 @@
-import {LayoutDashboard, GraduationCap, BookOpenText, FileUser} from "lucide-react";
 import type {NavigationGroup} from "@/modules/navigation/types.ts";
+import {LayoutDashboard, GraduationCap, FileUser, FilePenLine} from "lucide-react";
 
 export const navGroups: NavigationGroup[] = [
     {
@@ -33,7 +33,7 @@ export const navGroups: NavigationGroup[] = [
             {
                 path: "/academics/assessments",
                 title: "Assessments",
-                icon: BookOpenText,
+                icon: FilePenLine,
             },
         ],
     },

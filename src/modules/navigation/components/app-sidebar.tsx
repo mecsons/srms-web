@@ -50,9 +50,9 @@ export function AppSidebar() {
                                                 to={navItem.path}
                                                 params={navItem.params}
                                                 className="flex w-full items-center">
-                                                <navItem.icon className="h-5 w-5"/>
+                                                <navItem.icon className="size-5"/>
                                                 {!collapsed && (
-                                                    <span className="ml-3">{navItem.title}</span>
+                                                    <span className="ml-1">{navItem.title}</span>
                                                 )}
                                             </Link>
                                         </SidebarMenuButton>
