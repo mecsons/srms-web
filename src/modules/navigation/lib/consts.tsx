@@ -1,15 +1,40 @@
-import {LayoutDashboard, GraduationCap} from "lucide-react";
-import type {NavigationItemInterface} from "@/modules/navigation/types.ts";
+import {LayoutDashboard, GraduationCap, BookOpenText, FileUser} from "lucide-react";
+import type {NavigationGroup} from "@/modules/navigation/types.ts";
 
-export const navItems:Record<string, NavigationItemInterface> = {
-    home: {
-        path: "/",
-        title: "Home",
-        icon: LayoutDashboard,
+export const navGroups: NavigationGroup[] = [
+    {
+        label: "Overview",
+        items: [
+            {
+                path: "/",
+                title: "Home",
+                icon: LayoutDashboard,
+            },
+        ],
     },
-    students: {
-        path: "/students",
-        title: "Students",
-        icon: GraduationCap,
+    {
+        label: "Students",
+        items: [
+            {
+                path: "/students",
+                title: "Students",
+                icon: FileUser,
+            },
+            {
+                path: "/students/graduates",
+                title: "Graduates",
+                icon: GraduationCap,
+            },
+        ],
     },
-};
+    {
+        label: "Academics",
+        items: [
+            {
+                path: "/academics/assessments",
+                title: "Assessments",
+                icon: BookOpenText,
+            },
+        ],
+    },
+];

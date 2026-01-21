@@ -4,21 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="can now update students">
-      <change afterPath="$PROJECT_DIR$/src/modules/student/components/import-students.tsx" afterDir="false" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="can now import students">
+      <change afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/_protected/academics/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/_protected/students/graduates/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/progress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/progress.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/lib/consts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/lib/consts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routeTree.gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routeTree.gen.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,7 +102,7 @@
       <workItem from="1767222419264" duration="6881000" />
       <workItem from="1768911350196" duration="1684000" />
       <workItem from="1768933509792" duration="12171000" />
-      <workItem from="1768972210105" duration="5680000" />
+      <workItem from="1768972210105" duration="6662000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -226,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768976163460</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="can now import students">
+      <option name="closed" value="true" />
+      <created>1768978153875</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1768978153875</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +263,7 @@
     <MESSAGE value="fix the auto-redirect issue" />
     <MESSAGE value="minor edit" />
     <MESSAGE value="can now update students" />
-    <option name="LAST_COMMIT_MESSAGE" value="can now update students" />
+    <MESSAGE value="can now import students" />
+    <option name="LAST_COMMIT_MESSAGE" value="can now import students" />
   </component>
 </project>
