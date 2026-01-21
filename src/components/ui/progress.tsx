@@ -36,8 +36,8 @@ export function LoadingInput() {
 
 export function LoadingOverlay() {
     return (
-        <div className="absolute inset-0 bg-black/45 z-50 flex items-center justify-center">
-            <Spinner/>
+        <div className="absolute inset-0 bg-black/45 z-60 flex items-center justify-center">
+            <Spinner />
         </div>
     );
 }

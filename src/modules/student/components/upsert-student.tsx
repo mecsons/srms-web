@@ -33,6 +33,7 @@ export function UpsertStudent({gradeId, student}: Props) {
                 ) : (
                     <Button>
                         <UserRoundPlus/>
+                        <span className={"hidden md:inline"}>Add Student</span>
                     </Button>
                 )}
             </DialogTrigger>

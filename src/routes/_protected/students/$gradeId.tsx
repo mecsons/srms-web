@@ -9,6 +9,7 @@ import {createFileRoute, redirect} from '@tanstack/react-router'
 import {getColumns} from "@/modules/student/components/columns.tsx";
 import {UpsertStudent} from '@/modules/student/components/upsert-student.tsx'
 import {useGetActiveStudentsByGrade} from '@/modules/student/lib/hooks/use-student-service.ts'
+import {ImportStudents} from "@/modules/student/components/import-students.tsx";
 
 const searchSchema = z.object({
     gradeName: z.string().optional(),
@@ -46,7 +47,11 @@ function StudentList() {
 
             <div className="flex justify-between items-center gap-3">
                 <SearchInput search={search} setSearch={setSearch}/>
-                <UpsertStudent gradeId={gradeId}/>
+
+                <div className="flex items-center gap-2">
+                    <UpsertStudent gradeId={gradeId}/>
+                    <ImportStudents gradeId={gradeId}/>
+                </div>
             </div>
 
             <DataTable

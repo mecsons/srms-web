@@ -48,3 +48,29 @@ export function useUpsertStudent(gradeId: string) {
         },
     });
 }
+
+export function useImportStudents(gradeId: string) {
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: async (file: File) => {
+            try {
+                const formData = new FormData();
+                formData.append("file", file);
+
+                await api.post(`/students/${gradeId}/import`, formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+            } catch (error) {
+                handleServerError(error);
+            }
+        },
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({
+                queryKey: queryKeys.students.byGrade(gradeId),
+            });
+        },
+    });
+}
