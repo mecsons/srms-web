@@ -1,16 +1,14 @@
 import {useForm} from "react-hook-form";
+import {useRouter} from "@tanstack/react-router";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useNotifyToast} from "@/hooks/use-notify.ts";
 import {useFormLocalStorage} from "@/hooks/use-local-storage.ts";
 import type {IAssessment} from "@/modules/assessment/lib/types.ts";
 import {useUpsertAssessment} from "@/modules/assessment/lib/hooks/use-assessment-service.ts";
-import {
-    assessmentSchema,
-    defaultValues,
-    type AssessmentSchemaType
-} from "@/modules/assessment/lib/validations/assessment.ts";
+import {assessmentSchema, defaultValues, type AssessmentSchemaType} from "@/modules/assessment/lib/validations/assessment.ts";
 
 export function useAssessmentForm(assessment?: IAssessment) {
+    const {navigate} = useRouter();
     const {successToast, errorToast} = useNotifyToast();
     const upsertAssessment = useUpsertAssessment();
 
@@ -46,6 +44,8 @@ export function useAssessmentForm(assessment?: IAssessment) {
             form.reset(getDefaultValues());
 
             successToast(isEdit ? "Assessment updated successfully" : "Assessment created successfully");
+
+            await navigate({to: "/academics/assessments"});
         } catch (error) {
             errorToast(error);
         }

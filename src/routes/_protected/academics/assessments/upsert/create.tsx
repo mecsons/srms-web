@@ -1,4 +1,6 @@
+import {FilePlus} from "lucide-react";
 import {FormProvider} from "react-hook-form";
+import {Button} from "@/components/ui/button.tsx";
 import {Spinner} from "@/components/ui/spinner.tsx";
 import {ErrorAlert} from "@/components/ui/alert.tsx";
 import {createFileRoute} from '@tanstack/react-router'
@@ -8,8 +10,6 @@ import ScopeDetails from "@/modules/assessment/components/upsert/scope";
 import {BasicDetails} from "@/modules/assessment/components/upsert/basic-details.tsx";
 import {useAssessmentForm} from "@/modules/assessment/lib/hooks/use-assessment-form.ts";
 import {useGetAllGradesWithSubjects} from "@/modules/grade/lib/hooks/use-grade-service.ts";
-import {Button} from "@/components/ui/button.tsx";
-import {FilePlus} from "lucide-react";
 
 export const Route = createFileRoute(
     '/_protected/academics/assessments/upsert/create',
@@ -37,7 +37,7 @@ function RouteComponent() {
 
                                 <ScopeDetails grades={allGrades}/>
 
-                                <Button className={"mx-auto"} disabled={formIsSubmitting}>
+                                <Button type={"submit"} className={"mx-auto"} disabled={formIsSubmitting}>
                                     <FilePlus/>
                                     Create Assessment
                                 </Button>

@@ -1,18 +1,24 @@
-import {startOfDay} from "date-fns";
+import {format, isValid, parseISO, startOfDay} from "date-fns";
 import {useFormContext} from "react-hook-form";
 import {Input} from "@/components/ui/input.tsx";
 import {FormField} from "@/components/ui/form.tsx";
 import {FieldGroup} from "@/components/ui/field.tsx";
 import DatePicker from "@/components/ui/date-picker.tsx";
 import {BasicDetailsTitle} from "@/modules/assessment/components/upsert/title.tsx";
-import type {AssessmentSchemaType} from "@/modules/assessment/lib/validations/assessment";
+import type {AssessmentSchemaType} from "@/modules/assessment/lib/validations/assessment.ts";
 
 export function BasicDetails() {
     const {control, watch, formState: {isSubmitting}} = useFormContext<AssessmentSchemaType>();
 
     const startDate = watch("startDate");
     const minStartDate = startOfDay(new Date());
-    const minEndDate = startDate ? startOfDay(startDate) : minStartDate;
+    const toDate = (value?: string) => {
+        if (!value) return undefined;
+        const parsed = parseISO(value);
+        return isValid(parsed) ? startOfDay(parsed) : undefined;
+    };
+    const normalizedStartDate = toDate(startDate);
+    const minEndDate = normalizedStartDate ?? minStartDate;
 
     return (
         <div className="flex flex-col gap-6">
@@ -24,7 +30,11 @@ export function BasicDetails() {
                     name="name"
                     control={control}
                     render={({field}) => (
-                        <Input {...field} disabled={isSubmitting} placeholder="Assessment Name"/>
+                        <Input
+                            {...field}
+                            disabled={isSubmitting}
+                            placeholder="Assessment Name"
+                        />
                     )}
                 />
 
@@ -34,10 +44,10 @@ export function BasicDetails() {
                     control={control}
                     render={({field}) => (
                         <DatePicker
+                            value={toDate(field.value)}
+                            onChange={(date) => field.onChange(date ? format(date, "yyyy-MM-dd") : "")}
                             minDate={minStartDate}
                             disabled={isSubmitting}
-                            onChange={field.onChange}
-                            value={field.value as any}
                             placeholder="Select Start Date"
                         />
                     )}
@@ -49,11 +59,11 @@ export function BasicDetails() {
                     control={control}
                     render={({field}) => (
                         <DatePicker
+                            value={toDate(field.value)}
+                            onChange={(date) => field.onChange(date ? format(date, "yyyy-MM-dd") : "")}
                             minDate={minEndDate}
-                            onChange={field.onChange}
-                            value={field.value as any}
                             placeholder="Select End Date"
-                            disabled={isSubmitting || !startDate}
+                            disabled={isSubmitting || !normalizedStartDate}
                         />
                     )}
                 />

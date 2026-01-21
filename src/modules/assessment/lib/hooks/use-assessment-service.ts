@@ -6,6 +6,22 @@ import type {AssessmentSchemaType} from "@/modules/assessment/lib/validations/as
 
 const baseUrl = '/assessments'
 
+export function useGetAssessment(assessmentId: string) {
+    return useQuery({
+        queryKey: queryKeys.assessments.byId(assessmentId),
+        queryFn: async () => {
+            try {
+                const response = await api.get(`${baseUrl}/${assessmentId}`);
+                const {payload} = response.data
+
+                return payload as IAssessment
+            } catch (error) {
+                handleServerError(error)
+            }
+        },
+    })
+}
+
 export function useGetAssessments() {
     return useQuery({
         queryKey: queryKeys.assessments.all,

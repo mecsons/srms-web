@@ -4,8 +4,8 @@ import {useFieldArray, useFormContext} from "react-hook-form";
 import type {IGradeWithSubjects} from "@/modules/grade/lib/types.ts";
 import {ScopDetailsTitle} from "@/modules/assessment/components/upsert/title.tsx";
 import type {AssessmentSchemaType} from "@/modules/assessment/lib/validations/assessment";
-import {GradeListItem} from "@/modules/assessment/components/upsert/scope/grade-list-item.tsx";
 import {SubjectPanel} from "@/modules/assessment/components/upsert/scope/subject-panel.tsx";
+import {GradeListItem} from "@/modules/assessment/components/upsert/scope/grade-list-item.tsx";
 
 interface Props {
     grades: IGradeWithSubjects[]
@@ -36,20 +36,21 @@ export default function ScopeDetails({grades}: Props) {
     const activeGrade = grades.find((grade) => grade.id === activeGradeId) ?? null;
     const activeSubjectIds = activeGrade ? scopeByGrade.get(activeGrade.id) ?? [] : [];
 
-    const toggleSubject = (gradeId: string, subjectId: string, checked: boolean) => {
+    const toggleSubject = (gradeId: string, subjectId: string | number, checked: boolean) => {
+        const sid = String(subjectId);
         const scopeIndex = scope.findIndex((entry) => entry.gradeId === gradeId);
 
         if (checked) {
             if (scopeIndex === -1) {
-                append({gradeId, subjectIds: [subjectId]});
+                append({ gradeId: String(gradeId), subjectIds: [sid] });
                 return;
             }
 
             const current = scope[scopeIndex];
-            if (!current.subjectIds.includes(subjectId)) {
+            if (!current.subjectIds.includes(sid)) {
                 update(scopeIndex, {
                     ...current,
-                    subjectIds: [...current.subjectIds, subjectId],
+                    subjectIds: [...current.subjectIds, sid],
                 });
             }
             return;
@@ -58,31 +59,23 @@ export default function ScopeDetails({grades}: Props) {
         if (scopeIndex === -1) return;
 
         const current = scope[scopeIndex];
-        const nextSubjectIds = current.subjectIds.filter((id) => id !== subjectId);
+        const nextSubjectIds = current.subjectIds.filter((id) => id !== sid);
 
-        if (nextSubjectIds.length === 0) {
-            remove(scopeIndex);
-        } else {
-            update(scopeIndex, {
-                ...current,
-                subjectIds: nextSubjectIds,
-            });
-        }
+        if (nextSubjectIds.length === 0) remove(scopeIndex);
+        else update(scopeIndex, { ...current, subjectIds: nextSubjectIds });
     };
 
     const toggleAllSubjectsForGrade = (gradeId: string, checked: boolean) => {
         const grade = grades.find((g) => g.id === gradeId);
         if (!grade) return;
 
-        const allIds = grade.subjects.map((s) => s.id);
-        const scopeIndex = scope.findIndex((entry) => entry.gradeId === gradeId);
+        const gid = String(gradeId);
+        const allIds = grade.subjects.map((s) => String(s.id));
+        const scopeIndex = scope.findIndex((entry) => entry.gradeId === gid);
 
         if (checked) {
-            if (scopeIndex === -1) {
-                append({gradeId, subjectIds: allIds});
-            } else {
-                update(scopeIndex, {gradeId, subjectIds: allIds});
-            }
+            if (scopeIndex === -1) append({ gradeId: gid, subjectIds: allIds });
+            else update(scopeIndex, { gradeId: gid, subjectIds: allIds });
             return;
         }
 

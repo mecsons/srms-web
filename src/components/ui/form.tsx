@@ -3,19 +3,21 @@ import {Controller} from "react-hook-form";
 import {Field, FieldDescription, FieldError, FieldLabel} from "@/components/ui/field.tsx";
 import type {Control, ControllerFieldState, ControllerRenderProps, FieldValues, Path} from "react-hook-form";
 
-interface FormFieldProps<T extends FieldValues> {
+interface FormFieldProps<T extends FieldValues, TName extends Path<T>> {
     control: Control<T>;
-    name: Path<T>;
+    name: TName;
     label?: string;
     description?: string;
     noWrapper?: boolean;
     render: (props: {
-        field: ControllerRenderProps<T, Path<T>>;
+        field: ControllerRenderProps<T, TName>;
         fieldState: ControllerFieldState;
     }) => React.ReactNode;
 }
 
-export function FormField<T extends FieldValues>({...props}: FormFieldProps<T>) {
+export function FormField<T extends FieldValues, TName extends Path<T>>(
+    {...props}: FormFieldProps<T, TName>
+) {
     const {control, name, label, description, noWrapper, render} = props;
 
     return (

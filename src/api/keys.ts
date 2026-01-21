@@ -11,5 +11,6 @@ export const queryKeys = {
 
   assessments:{
     all: ["assessments"] as const,
+    byId: (assessmentId: string) => ["assessments", assessmentId] as const,
   }
 }

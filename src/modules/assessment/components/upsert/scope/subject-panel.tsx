@@ -16,7 +16,7 @@ export function SubjectPanel({...props}: Props) {
 
     const isAllChecked = useMemo(() => {
         if (!grade || grade.subjects.length === 0) return false;
-        const allIds = grade.subjects.map((s) => s.id);
+        const allIds = grade.subjects.map((s) => String(s.id));
         const selected = new Set(selectedSubjectIds);
         return allIds.every((id) => selected.has(id));
     }, [grade, selectedSubjectIds]);
@@ -60,9 +60,9 @@ export function SubjectPanel({...props}: Props) {
                             key={subject.id}
                             gradeId={grade.id}
                             subject={subject}
-                            isChecked={selectedSubjectIds.includes(subject.id)}
                             isDisabled={isSubmitting}
                             onToggle={onToggleSubject}
+                            isChecked={selectedSubjectIds.includes(String(subject.id))}
                         />
                     ))}
                 </div>

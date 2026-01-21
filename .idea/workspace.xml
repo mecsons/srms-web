@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="it now has scope details section">
-      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope/details.tsx" afterDir="false" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="handle assessment scope errors">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/keys.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/upsert/basic-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/basic-details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope/subject-panel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope/subject-panel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/lib/hooks/use-assessment-form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/lib/hooks/use-assessment-form.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/lib/hooks/use-assessment-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/lib/hooks/use-assessment-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/lib/validations/assessment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/lib/validations/assessment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/lib/hooks/use-login-form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/lib/hooks/use-login-form.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/create.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/create.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/edit.$assessmentId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/edit.$assessmentId.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +111,7 @@
       <workItem from="1768972210105" duration="6973000" />
       <workItem from="1768979382825" duration="5796000" />
       <workItem from="1769001973241" duration="9683000" />
-      <workItem from="1769014951576" duration="2496000" />
+      <workItem from="1769014951576" duration="8034000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -286,7 +297,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769017031543</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="refactor and refine assessment scope section">
+      <option name="closed" value="true" />
+      <created>1769017723121</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1769017723121</updated>
+    </task>
+    <task id="LOCAL-00025" summary="handle assessment scope errors">
+      <option name="closed" value="true" />
+      <created>1769018262763</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1769018262763</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +342,8 @@
     <MESSAGE value="add badge" />
     <MESSAGE value="prepare for assessment scope section" />
     <MESSAGE value="it now has scope details section" />
-    <option name="LAST_COMMIT_MESSAGE" value="it now has scope details section" />
+    <MESSAGE value="refactor and refine assessment scope section" />
+    <MESSAGE value="handle assessment scope errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="handle assessment scope errors" />
   </component>
 </project>
