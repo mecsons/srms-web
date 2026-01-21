@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="minor change">
+      <change afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/$assessmentId.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/assessment-actions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/assessment-actions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/columns.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/lib/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/lib/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routeTree.gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routeTree.gen.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/edit.$assessmentId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/edit.$assessmentId.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,12 +37,12 @@
     &quot;assignee&quot;: &quot;ringoebenezer&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/mecsons/srms-app.git&quot;,
-    &quot;accountId&quot;: &quot;2dc2d1f2-6614-49b9-b17b-05f01e689a54&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mecsons/srms-web.git",
+    "accountId": "2dc2d1f2-6614-49b9-b17b-05f01e689a54"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -98,6 +109,7 @@
       <workItem from="1768979382825" duration="5796000" />
       <workItem from="1769001973241" duration="9683000" />
       <workItem from="1769014951576" duration="9131000" />
+      <workItem from="1769033733805" duration="2711000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -323,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769032785262</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="minor change">
+      <option name="closed" value="true" />
+      <created>1769033829403</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1769033829403</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +354,6 @@
     <MESSAGE value="add favicons" />
     <MESSAGE value="fix things and even add a place for login and logout" />
     <MESSAGE value="fix sidebar" />
-    <MESSAGE value="minor change" />
     <MESSAGE value="can now view students" />
     <MESSAGE value="can now add students too" />
     <MESSAGE value="minor fix" />
@@ -355,6 +374,7 @@
     <MESSAGE value="can now add assessments" />
     <MESSAGE value="feat: update assessment" />
     <MESSAGE value="can now update assessments too" />
-    <option name="LAST_COMMIT_MESSAGE" value="can now update assessments too" />
+    <MESSAGE value="minor change" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor change" />
   </component>
 </project>

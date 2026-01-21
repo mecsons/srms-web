@@ -29,7 +29,6 @@ function RouteComponent() {
     if (isPending || gradesPending) return <Spinner/>;
     if (error) return <ErrorAlert error={error}/>;
     if (gradesError) return <ErrorAlert error={gradesError}/>;
-    if (!existingAssessment) return <ErrorAlert error={new Error("Assessment not found")}/>;
 
     return (
         <Page>
