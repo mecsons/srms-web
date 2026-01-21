@@ -1,0 +1,121 @@
+import {FieldGroup} from "@/components/ui/field.tsx";
+import {useEffect, useMemo, useState} from "react";
+import {useFieldArray, useFormContext} from "react-hook-form";
+import type {IGradeWithSubjects} from "@/modules/grade/lib/types.ts";
+import {ScopDetailsTitle} from "@/modules/assessment/components/upsert/title.tsx";
+import type {AssessmentSchemaType} from "@/modules/assessment/lib/validations/assessment";
+import {GradeListItem} from "@/modules/assessment/components/upsert/scope/grade-list-item.tsx";
+import {SubjectPanel} from "@/modules/assessment/components/upsert/scope/subject-panel.tsx";
+
+interface Props {
+    grades: IGradeWithSubjects[]
+}
+
+export default function ScopeDetails({grades}: Props) {
+    const {control, watch, formState: {isSubmitting}} = useFormContext<AssessmentSchemaType>();
+
+    const scope = watch("scope") ?? [];
+    const [activeGradeId, setActiveGradeId] = useState<string | null>(scope[0]?.gradeId ?? null);
+
+    const {append, remove, update} = useFieldArray({control, name: "scope"});
+
+    useEffect(() => {
+        if (!activeGradeId && scope.length > 0) {
+            setActiveGradeId(scope[0].gradeId);
+        }
+    }, [activeGradeId, scope]);
+
+    const scopeByGrade = useMemo(() => {
+        const map = new Map<string, string[]>();
+        scope.forEach((entry) => {
+            map.set(entry.gradeId, entry.subjectIds);
+        });
+        return map;
+    }, [scope]);
+
+    const activeGrade = grades.find((grade) => grade.id === activeGradeId) ?? null;
+    const activeSubjectIds = activeGrade ? scopeByGrade.get(activeGrade.id) ?? [] : [];
+
+    const toggleSubject = (gradeId: string, subjectId: string, checked: boolean) => {
+        const scopeIndex = scope.findIndex((entry) => entry.gradeId === gradeId);
+
+        if (checked) {
+            if (scopeIndex === -1) {
+                append({gradeId, subjectIds: [subjectId]});
+                return;
+            }
+
+            const current = scope[scopeIndex];
+            if (!current.subjectIds.includes(subjectId)) {
+                update(scopeIndex, {
+                    ...current,
+                    subjectIds: [...current.subjectIds, subjectId],
+                });
+            }
+            return;
+        }
+
+        if (scopeIndex === -1) return;
+
+        const current = scope[scopeIndex];
+        const nextSubjectIds = current.subjectIds.filter((id) => id !== subjectId);
+
+        if (nextSubjectIds.length === 0) {
+            remove(scopeIndex);
+        } else {
+            update(scopeIndex, {
+                ...current,
+                subjectIds: nextSubjectIds,
+            });
+        }
+    };
+
+    const toggleAllSubjectsForGrade = (gradeId: string, checked: boolean) => {
+        const grade = grades.find((g) => g.id === gradeId);
+        if (!grade) return;
+
+        const allIds = grade.subjects.map((s) => s.id);
+        const scopeIndex = scope.findIndex((entry) => entry.gradeId === gradeId);
+
+        if (checked) {
+            if (scopeIndex === -1) {
+                append({gradeId, subjectIds: allIds});
+            } else {
+                update(scopeIndex, {gradeId, subjectIds: allIds});
+            }
+            return;
+        }
+
+        if (scopeIndex !== -1) remove(scopeIndex);
+    };
+
+    return (
+        <div className="flex flex-col gap-6">
+            <ScopDetailsTitle/>
+
+            <FieldGroup className="grid grid-cols-1 gap-6 lg:grid-cols-[260px_1fr]">
+                <div className="flex max-h-105 flex-col gap-2 overflow-y-auto pr-1">
+                    {grades.map((grade) => (
+                        <GradeListItem
+                            key={grade.id}
+                            grade={grade}
+                            selectedCount={scopeByGrade.get(grade.id)?.length ?? 0}
+                            isActive={activeGradeId === grade.id}
+                            onClick={() => setActiveGradeId(grade.id)}
+                        />
+                    ))}
+                </div>
+
+                <div className="min-h-55 rounded-lg border bg-muted/30 p-4">
+                    <SubjectPanel
+                        grade={activeGrade}
+                        selectedSubjectIds={activeSubjectIds}
+                        isSubmitting={isSubmitting}
+                        onToggleSubject={toggleSubject}
+                        onToggleAll={toggleAllSubjectsForGrade}
+                    />
+                </div>
+            </FieldGroup>
+        </div>
+    );
+}

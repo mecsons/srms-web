@@ -4,8 +4,8 @@ import {ErrorAlert} from "@/components/ui/alert.tsx";
 import {createFileRoute} from '@tanstack/react-router'
 import {Page, PageTitle} from "@/components/ui/page.tsx";
 import {Card, CardContent} from "@/components/ui/card.tsx";
+import ScopeDetails from "@/modules/assessment/components/upsert/scope";
 import {BasicDetails} from "@/modules/assessment/components/upsert/basic-details.tsx";
-import {ScopeDetails} from "@/modules/assessment/components/upsert/scope-details.tsx";
 import {useAssessmentForm} from "@/modules/assessment/lib/hooks/use-assessment-form.ts";
 import {useGetAllGradesWithSubjects} from "@/modules/grade/lib/hooks/use-grade-service.ts";
 

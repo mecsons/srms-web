@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope-details.tsx" afterDir="false" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="it now has scope details section">
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope/details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/create.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/academics/assessments/upsert/create.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +73,7 @@
       <recent name="$PROJECT_DIR$/src/modules" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope" />
       <recent name="$PROJECT_DIR$/src/modules/student/lib" />
       <recent name="$PROJECT_DIR$/src/modules/grade/lib" />
     </key>
@@ -100,7 +100,7 @@
       <workItem from="1768972210105" duration="6973000" />
       <workItem from="1768979382825" duration="5796000" />
       <workItem from="1769001973241" duration="9683000" />
-      <workItem from="1769014951576" duration="2056000" />
+      <workItem from="1769014951576" duration="2496000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -278,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769012863239</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="it now has scope details section">
+      <option name="closed" value="true" />
+      <created>1769017031543</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1769017031543</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,6 +314,7 @@
     <MESSAGE value="can now view assessments" />
     <MESSAGE value="add badge" />
     <MESSAGE value="prepare for assessment scope section" />
-    <option name="LAST_COMMIT_MESSAGE" value="prepare for assessment scope section" />
+    <MESSAGE value="it now has scope details section" />
+    <option name="LAST_COMMIT_MESSAGE" value="it now has scope details section" />
   </component>
 </project>
