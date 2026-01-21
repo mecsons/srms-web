@@ -3,6 +3,7 @@ import {type ColumnDef} from "@tanstack/react-table";
 import {TableSNCell} from "@/components/ui/table.tsx";
 import {getStatusBadge} from "@/modules/assessment/lib/utils.tsx";
 import type {IAssessment} from "@/modules/assessment/lib/types.ts";
+import {AssessmentActions} from "@/modules/assessment/components/assessment-actions.tsx";
 
 export function getColumns(): ColumnDef<IAssessment>[] {
     return [
@@ -30,5 +31,9 @@ export function getColumns(): ColumnDef<IAssessment>[] {
             header: "Status",
             cell: ({row}) => getStatusBadge(row.original)
         },
+        {
+            id: "actions",
+            cell: ({row}) => <AssessmentActions assessment={row.original}/>
+        }
     ];
 }

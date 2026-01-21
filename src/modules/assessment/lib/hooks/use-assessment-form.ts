@@ -43,7 +43,7 @@ export function useAssessmentForm(assessment?: IAssessment) {
         }
     }, [assessment, resolvedDefaults, form]);
 
-    const {clearLocalStorage} = useFormLocalStorage(form, "assessmentDraft");
+    const {clearLocalStorage} = useFormLocalStorage(form, "assessmentDraft", !assessment);
 
     const onSubmit = form.handleSubmit(async (data) => {
         try {

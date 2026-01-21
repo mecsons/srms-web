@@ -1,13 +1,11 @@
 import { useEffect, useRef } from 'react'
 import type { FieldValues, UseFormReturn } from 'react-hook-form'
 
-export function useFormLocalStorage<T extends FieldValues>(
-  form: UseFormReturn<T>,
-  storageKey: string,
-) {
+export function useFormLocalStorage<T extends FieldValues>(form: UseFormReturn<T>, storageKey: string, enabled = true) {
   const allowSaveRef = useRef(true)
 
   useEffect(() => {
+    if (!enabled) return
     const saved = localStorage.getItem(storageKey)
 
     if (saved) {
@@ -19,9 +17,10 @@ export function useFormLocalStorage<T extends FieldValues>(
         console.error('Failed to parse saved form values', e)
       }
     }
-  }, [form, storageKey])
+  }, [enabled, form, storageKey])
 
   useEffect(() => {
+    if (!enabled) return
     const subscription = form.watch((values) => {
       if (allowSaveRef.current) {
         localStorage.setItem(storageKey, JSON.stringify(values))
@@ -29,9 +28,10 @@ export function useFormLocalStorage<T extends FieldValues>(
     })
 
     return () => subscription.unsubscribe()
-  }, [form, storageKey])
+  }, [enabled, form, storageKey])
 
   const clearLocalStorage = () => {
+    if (!enabled) return
     allowSaveRef.current = false
     localStorage.removeItem(storageKey)
   }
