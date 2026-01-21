@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="simplify the navigation">
-      <change beforePath="$PROJECT_DIR$/src/modules/navigation/components/app-sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/components/app-sidebar.tsx" afterDir="false" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="feat: update assessment">
+      <change afterPath="$PROJECT_DIR$/src/modules/assessment/components/assessment-actions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/assessment/components/columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/assessment/components/columns.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +50,9 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/Ringo_Jr/Projects/mecsons/frontend/src/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ringo_jr/Projects/mecsons/frontend/src/components/ui&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -65,13 +66,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/ui" />
+      <recent name="$PROJECT_DIR$/src/modules/assessment/components/upsert" />
       <recent name="$PROJECT_DIR$/src/lib" />
       <recent name="$PROJECT_DIR$/src/hooks" />
       <recent name="$PROJECT_DIR$/src/modules" />
-      <recent name="$PROJECT_DIR$/src/routes/_protected/students" />
-      <recent name="$PROJECT_DIR$/src/components/ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/modules/assessment/components/upsert/scope" />
       <recent name="$PROJECT_DIR$/src/modules/student/lib" />
       <recent name="$PROJECT_DIR$/src/modules/grade/lib" />
     </key>
@@ -96,6 +98,9 @@
       <workItem from="1768911350196" duration="1684000" />
       <workItem from="1768933509792" duration="12171000" />
       <workItem from="1768972210105" duration="6973000" />
+      <workItem from="1768979382825" duration="5796000" />
+      <workItem from="1769001973241" duration="9683000" />
+      <workItem from="1769014951576" duration="8723000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -241,14 +246,85 @@
       <option name="project" value="LOCAL" />
       <updated>1768979110028</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="simplify the navigation">
+      <option name="closed" value="true" />
+      <created>1768979424172</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1768979424172</updated>
+    </task>
+    <task id="LOCAL-00020" summary="can now view assessments">
+      <option name="closed" value="true" />
+      <created>1768995780008</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1768995780008</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add badge">
+      <option name="closed" value="true" />
+      <created>1768995803161</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1768995803161</updated>
+    </task>
+    <task id="LOCAL-00022" summary="prepare for assessment scope section">
+      <option name="closed" value="true" />
+      <created>1769012863239</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1769012863239</updated>
+    </task>
+    <task id="LOCAL-00023" summary="it now has scope details section">
+      <option name="closed" value="true" />
+      <created>1769017031543</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1769017031543</updated>
+    </task>
+    <task id="LOCAL-00024" summary="refactor and refine assessment scope section">
+      <option name="closed" value="true" />
+      <created>1769017723121</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1769017723121</updated>
+    </task>
+    <task id="LOCAL-00025" summary="handle assessment scope errors">
+      <option name="closed" value="true" />
+      <created>1769018262763</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1769018262763</updated>
+    </task>
+    <task id="LOCAL-00026" summary="can now add assessments">
+      <option name="closed" value="true" />
+      <created>1769031995408</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1769031995408</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: update assessment">
+      <option name="closed" value="true" />
+      <created>1769032280432</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1769032280432</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="users can now login" />
     <MESSAGE value="ignore unnecessary files" />
     <MESSAGE value="add sidebar components" />
     <MESSAGE value="add favicons" />
@@ -266,6 +342,14 @@
     <MESSAGE value="can now update students" />
     <MESSAGE value="can now import students" />
     <MESSAGE value="simplify the navigation" />
-    <option name="LAST_COMMIT_MESSAGE" value="simplify the navigation" />
+    <MESSAGE value="can now view assessments" />
+    <MESSAGE value="add badge" />
+    <MESSAGE value="prepare for assessment scope section" />
+    <MESSAGE value="it now has scope details section" />
+    <MESSAGE value="refactor and refine assessment scope section" />
+    <MESSAGE value="handle assessment scope errors" />
+    <MESSAGE value="can now add assessments" />
+    <MESSAGE value="feat: update assessment" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: update assessment" />
   </component>
 </project>
