@@ -1,7 +1,8 @@
 import {queryKeys} from "@/api/keys.ts";
 import {api, handleServerError} from '@/api'
-import {useQuery} from '@tanstack/react-query'
+import {useMutation, useQuery} from '@tanstack/react-query'
 import type {IAssessment} from "@/modules/assessment/lib/types.ts";
+import type {AssessmentSchemaType} from "@/modules/assessment/lib/validations/assessment.ts";
 
 const baseUrl = '/assessments'
 
@@ -19,4 +20,22 @@ export function useGetAssessments() {
             }
         },
     })
+}
+
+export function useUpsertAssessment() {
+    return useMutation({
+        mutationFn: async (args: { data: AssessmentSchemaType; assessmentId?: string }) => {
+            const {data, assessmentId} = args;
+
+            try {
+                if (assessmentId) {
+                    await api.put(`${baseUrl}/${assessmentId}`, data);
+                } else {
+                    await api.post(baseUrl, data);
+                }
+            } catch (error) {
+                handleServerError(error);
+            }
+        },
+    });
 }

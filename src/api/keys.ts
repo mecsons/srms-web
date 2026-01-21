@@ -1,6 +1,7 @@
 export const queryKeys = {
   grades: {
     all: ["grades"] as const,
+    withSubjects: ["grades", "withSubjects"] as const,
   },
 
   students: {

@@ -1,0 +1,55 @@
+import {useForm} from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {useNotifyToast} from "@/hooks/use-notify.ts";
+import {useFormLocalStorage} from "@/hooks/use-local-storage.ts";
+import type {IAssessment} from "@/modules/assessment/lib/types.ts";
+import {useUpsertAssessment} from "@/modules/assessment/lib/hooks/use-assessment-service.ts";
+import {
+    assessmentSchema,
+    defaultValues,
+    type AssessmentSchemaType
+} from "@/modules/assessment/lib/validations/assessment.ts";
+
+export function useAssessmentForm(assessment?: IAssessment) {
+    const {successToast, errorToast} = useNotifyToast();
+    const upsertAssessment = useUpsertAssessment();
+
+    const getDefaultValues = (): AssessmentSchemaType => {
+        if (!assessment) return defaultValues;
+
+        return {
+            name: assessment.name,
+            startDate: assessment.startDate,
+            endDate: assessment.endDate,
+            status: assessment.status,
+            scope: assessment.scope.map((item) => ({
+                gradeId: item.grade.id,
+                subjectIds: item.subjects.map((s) => s.id),
+            })),
+        };
+    };
+
+    const form = useForm<AssessmentSchemaType>({
+        resolver: zodResolver(assessmentSchema),
+        defaultValues: getDefaultValues(),
+    });
+
+    const {clearLocalStorage} = useFormLocalStorage(form, "assessmentDraft");
+
+    const onSubmit = form.handleSubmit(async (data) => {
+        try {
+            const isEdit = !!assessment?.id;
+
+            await upsertAssessment.mutateAsync({data, assessmentId: assessment?.id});
+
+            clearLocalStorage();
+            form.reset(getDefaultValues());
+
+            successToast(isEdit ? "Assessment updated successfully" : "Assessment created successfully");
+        } catch (error) {
+            errorToast(error);
+        }
+    });
+
+    return {form, onSubmit, formIsSubmitting: form.formState.isSubmitting};
+}
