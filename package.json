@@ -6,6 +6,7 @@
     "gr": "tsr generate",
     "wr": "tsr watch",
     "dev": "pnpm run gr && vite --port 3000",
+    "git": "git switch main && git pull && git switch development && git merge main && git push",
     "build": "vite build && tsc",
     "preview": "vite preview",
     "test": "vitest run"
