@@ -1,43 +1,48 @@
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {useNotifyToast} from '@/hooks/use-notify.ts'
+import type {IStudent} from "@/modules/student/lib/types.ts";
 import {useFormLocalStorage} from '@/hooks/use-local-storage.ts'
-import {
-    defaultValues,
-    studentSchema,
-    type StudentSchemaType,
-} from '@/modules/student/lib/validations/student.ts'
-import {useCreateStudent} from '@/modules/student/lib/hooks/use-student-service.ts'
-import {useQueryClient} from "@tanstack/react-query";
-import {queryKeys} from "@/api/keys.ts";
+import {useUpsertStudent} from '@/modules/student/lib/hooks/use-student-service.ts'
+import {defaultValues, studentSchema, type StudentSchemaType} from '@/modules/student/lib/validations/student.ts'
 
-
-export function useStudentForm(gradeId: string, options?: { onSuccess?: () => void }) {
-    const queryClient = useQueryClient();
+export function useStudentForm(gradeId: string, student?: IStudent, options?: { onSuccess?: () => void }) {
     const {successToast, errorToast} = useNotifyToast()
-    const createStudent = useCreateStudent(gradeId)
+    const upsertStudent = useUpsertStudent(gradeId)
+
+    const getDefaultValues = (): StudentSchemaType => {
+        if (student) {
+            return {
+                name: student.name,
+                phoneNumber: student.phoneNumber,
+                gradeId: gradeId,
+            }
+        }
+
+        return {
+            ...defaultValues,
+            gradeId
+        };
+    };
 
     const form = useForm<StudentSchemaType>({
         resolver: zodResolver(studentSchema),
-        defaultValues: {
-            ...defaultValues,
-            gradeId,
-        },
+        defaultValues: getDefaultValues(),
     })
 
     const {clearLocalStorage} = useFormLocalStorage(form, 'studentDraft')
 
     const onSubmit = form.handleSubmit(async (values) => {
         try {
-            await createStudent.mutateAsync(values)
-            await queryClient.invalidateQueries({
-                queryKey: queryKeys.students.byGrade(gradeId)
+            await upsertStudent.mutateAsync({
+                data: values,
+                studentId: student?.id,
             });
 
             clearLocalStorage()
             form.reset()
 
-            successToast('Student created successfully')
+            successToast(student ? "Student updated successfully" : "Student created successfully");
 
             options?.onSuccess?.();
         } catch (error) {
@@ -45,5 +50,5 @@ export function useStudentForm(gradeId: string, options?: { onSuccess?: () => vo
         }
     })
 
-    return {form, onSubmit}
+    return {form, onSubmit, formIsSubmitting: form.formState.isSubmitting}
 }

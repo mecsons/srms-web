@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="add auth guard">
-      <change beforePath="$PROJECT_DIR$/src/components/ui/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/lib/hooks/use-auth-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/lib/hooks/use-auth-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/navigation/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/components/site-header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/__root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__root.tsx" afterDir="false" />
+    <list default="true" id="966b0ef7-6ba0-4ce2-bc5a-cf0ebdbf5df9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/modules/enrollment/lib/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/student/components/student-actions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/student/components/columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/components/columns.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/components/upsert-student.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-form.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/student/lib/hooks/use-student-service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/$gradeId.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/_protected/students/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_protected/students/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,27 +42,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "/Users/Ringo_Jr/Projects/mecsons/frontend/src/lib",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/Users/ringo_jr/.local/share/mise/installs/node/24/bin/node",
-    "nodejs_package_manager_path": "/Users/ringo_jr/.local/share/mise/installs/pnpm/latest/pnpm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "/Users/ringo_jr/Projects/mecsons/frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/Ringo_Jr/Projects/mecsons/frontend/src/lib&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/Users/ringo_jr/.local/share/mise/installs/node/24/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;/Users/ringo_jr/.local/share/mise/installs/pnpm/latest/pnpm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/ringo_jr/Projects/mecsons/frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/lib" />
@@ -93,7 +94,8 @@
       <workItem from="1767191533810" duration="1027000" />
       <workItem from="1767222419264" duration="6881000" />
       <workItem from="1768911350196" duration="1684000" />
-      <workItem from="1768933509792" duration="11670000" />
+      <workItem from="1768933509792" duration="12171000" />
+      <workItem from="1768972210105" duration="3887000" />
     </task>
     <task id="LOCAL-00001" summary="users can now login">
       <option name="closed" value="true" />
@@ -199,7 +201,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768945017227</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix the auto-redirect issue">
+      <option name="closed" value="true" />
+      <created>1768945969104</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1768945969104</updated>
+    </task>
+    <task id="LOCAL-00015" summary="minor edit">
+      <option name="closed" value="true" />
+      <created>1768946303803</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1768946303803</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +237,8 @@
     <MESSAGE value="add breadcrumbs" />
     <MESSAGE value="add the auth guard component" />
     <MESSAGE value="add auth guard" />
-    <option name="LAST_COMMIT_MESSAGE" value="add auth guard" />
+    <MESSAGE value="fix the auto-redirect issue" />
+    <MESSAGE value="minor edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor edit" />
   </component>
 </project>

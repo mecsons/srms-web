@@ -1,43 +1,45 @@
-import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from '@/components/ui/dialog'
-import {UserRoundPlus} from "lucide-react";
+import {useState} from "react";
 import {Input} from '@/components/ui/input'
 import {Button} from '@/components/ui/button'
 import {FormField} from '@/components/ui/form.tsx'
 import {FieldGroup} from '@/components/ui/field.tsx'
+import {Pencil, UserRoundPlus} from "lucide-react";
 import {useStudentForm} from '@/modules/student/lib/hooks/use-student-form.ts'
-import {useState} from "react";
+import type {IStudent} from "@/modules/student/lib/types.ts";
+import {
+    Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
+} from '@/components/ui/dialog'
 
 interface Props {
     gradeId: string
+    student?: IStudent;
 }
 
-export function UpsertStudent({gradeId}: Props) {
+export function UpsertStudent({gradeId, student}: Props) {
     const [open, setOpen] = useState(false);
+    const {form, onSubmit, formIsSubmitting} = useStudentForm(gradeId, student, {onSuccess: () => setOpen(false)});
 
-    const {form, onSubmit} = useStudentForm(gradeId, {onSuccess: () => setOpen(false)});
-
-    const formIsSubmitting = form.formState.isSubmitting
+    const isEdit = !!student;
+    const title = isEdit ? "Update Student" : "Add Student";
+    const submitLabel = isEdit ? "Update Student" : "Create Student";
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button>
-                    <UserRoundPlus/>
-                </Button>
+                {isEdit ? (
+                    <Button size="icon" variant="outline">
+                        <Pencil/>
+                    </Button>
+                ) : (
+                    <Button>
+                        <UserRoundPlus/>
+                    </Button>
+                )}
             </DialogTrigger>
 
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                    <DialogTitle>Add Student</DialogTitle>
+                    <DialogTitle>{title}</DialogTitle>
                     <DialogDescription>Fill in the student details</DialogDescription>
                 </DialogHeader>
 
@@ -63,7 +65,9 @@ export function UpsertStudent({gradeId}: Props) {
                             <Button variant="outline">Cancel</Button>
                         </DialogClose>
 
-                        <Button type="submit" disabled={formIsSubmitting}>Create Student</Button>
+                        <Button type="submit" disabled={formIsSubmitting}>
+                            {submitLabel}
+                        </Button>
                     </DialogFooter>
                 </form>
             </DialogContent>

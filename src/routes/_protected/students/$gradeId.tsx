@@ -8,7 +8,7 @@ import {SearchInput} from "@/components/ui/search-input.tsx";
 import {createFileRoute, redirect} from '@tanstack/react-router'
 import {getColumns} from "@/modules/student/components/columns.tsx";
 import {UpsertStudent} from '@/modules/student/components/upsert-student.tsx'
-import {useGetStudentsByGrade} from '@/modules/student/lib/hooks/use-student-service.ts'
+import {useGetActiveStudentsByGrade} from '@/modules/student/lib/hooks/use-student-service.ts'
 
 const searchSchema = z.object({
     gradeName: z.string().optional(),
@@ -35,7 +35,7 @@ function StudentList() {
 
     const [search, setSearch] = useState("");
 
-    const {error, isPending, data: students} = useGetStudentsByGrade(gradeId)
+    const {error, isPending, data: students} = useGetActiveStudentsByGrade(gradeId)
 
     if (isPending) return <Spinner/>
     if (error) return <ErrorAlert error={error}/>
