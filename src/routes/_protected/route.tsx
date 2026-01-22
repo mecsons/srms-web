@@ -27,7 +27,7 @@ function ProtectedRoute() {
             <main className="w-full">
                 <SiteHeader className="px-4"/>
 
-                <div className="px-4">
+                <div className="px-4 pb-5">
                     <Outlet/>
                 </div>
 
