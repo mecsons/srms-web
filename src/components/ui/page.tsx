@@ -18,7 +18,7 @@ export function PageTitle({ ...props }: TitleProps) {
 
     return (
         <div>
-            <h1 className="text-md font-medium leading-2.5">{title}</h1>
+            <h1 className="text-xl font-semibold leading-2.5">{title}</h1>
             {description && (
                 <span className="text-muted-foreground text-sm">{description}</span>
             )}
