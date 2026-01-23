@@ -1,11 +1,11 @@
 import {Spinner} from "@/components/ui/spinner.tsx";
 import {ErrorAlert} from "@/components/ui/alert.tsx";
 import {createFileRoute} from '@tanstack/react-router'
+import {StatCard} from "@/components/ui/stat-card.tsx";
 import {Page, PageTitle} from "@/components/ui/page.tsx";
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
+import {Scope} from "@/modules/assessment/components/overview/scope.tsx";
+import {Details} from "@/modules/assessment/components/overview/details.tsx";
 import {useGetAssessment} from "@/modules/assessment/lib/hooks/use-assessment-service.ts";
-import {OverviewTab} from "@/modules/assessment/components/overview/tab.tsx";
-import {ResultsTab} from "@/modules/assessment/components/results/tab.tsx";
 
 export const Route = createFileRoute(
     '/_protected/academics/assessments/$assessmentId',
@@ -25,20 +25,19 @@ function RouteComponent() {
         <Page>
             <PageTitle title={assessment.name}/>
 
-            <Tabs defaultValue="overview">
-                <TabsList>
-                    <TabsTrigger value="overview">Overview</TabsTrigger>
-                    <TabsTrigger value="results">Results</TabsTrigger>
-                </TabsList>
+            <div className={"flex flex-col gap-7"}>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+                    <StatCard title={"Academic Year"} value={"2025"}/>
+                    <StatCard title={"Duration"} value={"Jan 15, 2026 → Jan 29, 2026"}/>
+                    <StatCard title={"Scope"} value={"3 grades • 8 subjects"}/>
+                    <StatCard title={"Results Coverage"} value={"412 / 520 students entered"}/>
+                </div>
 
-                <TabsContent value="overview">
-                    <OverviewTab assessment={assessment}/>
-                </TabsContent>
-
-                <TabsContent value="results">
-                    <ResultsTab/>
-                </TabsContent>
-            </Tabs>
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                    <Scope assessment={assessment}/>
+                    <Details assessment={assessment}/>
+                </div>
+            </div>
         </Page>
     )
 }

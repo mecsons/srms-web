@@ -17,13 +17,13 @@ export function Scope({assessment}: Props) {
                 {assessment.scope.map((sc, idx) => (
                     <div key={`${sc.grade.id}-${idx}`} className="rounded-md border bg-background p-3">
                         <div className="flex justify-between items-baseline gap-4">
-                            <div className="flex flex-col gap-3">
-                                <div className={"flex justify-between items-baseline"}>
+                            <div className="flex flex-col gap-4">
+                                <div className={"flex justify-between items-center"}>
                                     <span className="min-w-23 text-sm font-medium">
-                                        {sc.grade.name}
+                                      {idx + 1}.   {sc.grade.name}
                                     </span>
 
-                                    <Button size={"sm"} variant={"link"} className={"underline"}>View Results</Button>
+                                    <Button size={"sm"} variant={"link"} className={"underline"}>Results</Button>
                                 </div>
 
                                 <div className="flex flex-wrap gap-3">
