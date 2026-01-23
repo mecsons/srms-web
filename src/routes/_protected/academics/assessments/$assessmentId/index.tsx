@@ -8,7 +8,7 @@ import {Details} from "@/modules/assessment/components/overview/details.tsx";
 import {useGetAssessment} from "@/modules/assessment/lib/hooks/use-assessment-service.ts";
 
 export const Route = createFileRoute(
-    '/_protected/academics/assessments/$assessmentId',
+    '/_protected/academics/assessments/$assessmentId/',
 )({
     component: RouteComponent,
 })
