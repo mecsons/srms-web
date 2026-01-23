@@ -29,7 +29,10 @@ function RouteComponent() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <StatCard title={"Academic Year"} value={"2025"}/>
                     <StatCard title={"Duration"} value={"Jan 15, 2026 → Jan 29, 2026"}/>
-                    <StatCard title={"Scope"} value={"3 grades • 8 subjects"}/>
+                    <StatCard
+                        title={"Scope"}
+                        value={`${assessment.stats.scope.gradeCount} grades • ${assessment.stats.scope.subjectCount} subjects`}
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
