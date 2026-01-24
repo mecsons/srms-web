@@ -7,7 +7,7 @@ const baseUrl = '/assessments'
 
 export function useGetAssessmentResult(assessmentId: string, gradeId: string) {
     return useQuery({
-        queryKey: queryKeys.assessments.byId(assessmentId),
+        queryKey: queryKeys.results.assessment(assessmentId, gradeId),
         queryFn: async () => {
             try {
                 const response =
