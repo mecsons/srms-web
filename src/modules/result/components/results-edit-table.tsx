@@ -15,7 +15,8 @@ interface Props {
 
 export function ResultsEditTable({ results }: Props) {
     const { rows } = results;
-    const { form, onSubmit, formIsSubmitting } = useAssessmentResultsForm(results);
+    const { form, onSubmit, formIsDirty, formIsSubmitting } = useAssessmentResultsForm(results);
+
     const { fields } = useFieldArray({
         control: form.control,
         name: "results",
@@ -114,7 +115,7 @@ export function ResultsEditTable({ results }: Props) {
                     Showing {results.rows.length} records
                 </div>
 
-                <Button type="submit" size={"sm"} disabled={formIsSubmitting}>
+                <Button type="submit" size={"sm"}  disabled={!formIsDirty || formIsSubmitting}>
                     <Save/> {formIsSubmitting ? "Saving..." : "Save Changes"}
                 </Button>
             </div>

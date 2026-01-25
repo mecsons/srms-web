@@ -80,5 +80,6 @@ export function useAssessmentResultsForm(results: IAssessmentResults) {
         form,
         onSubmit,
         formIsSubmitting: form.formState.isSubmitting,
+        formIsDirty: form.formState.isDirty,
     };
 }
