@@ -28,7 +28,7 @@ export function AppSidebar() {
                     </div>
 
                     {state === "expanded" && (
-                        <h1 className="font-bold text-lg">Intowild</h1>
+                        <h1 className="font-bold text-lg">Mecsons</h1>
                     )}
                 </div>
             </SidebarHeader>
