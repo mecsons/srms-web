@@ -24,5 +24,5 @@ export interface IAssessmentResults {
             totalSubjects: number;
         };
     }[];
-    canEdit: boolean;
+    canEnterResults: boolean;
 }

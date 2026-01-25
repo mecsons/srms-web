@@ -15,6 +15,6 @@ export const queryKeys = {
     },
 
     results: {
-        assessment: (assId: string, resId: string) => ["results", String(assId), String(resId)] as const,
+        grade: (assId: string, resId: string) => ["results", String(assId), String(resId)] as const,
     }
 }

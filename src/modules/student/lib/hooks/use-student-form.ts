@@ -21,7 +21,7 @@ export function useStudentForm(gradeId: string, student?: IStudent, options?: { 
 
         return {
             ...defaultValues,
-            gradeId
+            gradeId: gradeId
         };
     };
 
