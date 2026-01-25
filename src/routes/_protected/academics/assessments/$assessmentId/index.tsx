@@ -7,6 +7,7 @@ import {Scope} from "@/modules/assessment/components/overview/scope.tsx";
 import {Details} from "@/modules/assessment/components/overview/details.tsx";
 import {useGetAssessment} from "@/modules/assessment/lib/hooks/use-assessment-service.ts";
 import {formatDateString} from "@/lib/utils.ts";
+import {UpsertAssessment} from "@/modules/assessment/components/assessment-actions.tsx";
 
 export const Route = createFileRoute(
     '/_protected/academics/assessments/$assessmentId/',
@@ -27,7 +28,10 @@ function RouteComponent() {
 
     return (
         <Page>
-            <PageTitle title={assessment.name}/>
+            <div className={"flex justify-between items-center"}>
+                <PageTitle title={assessment.name}/>
+                <UpsertAssessment assessment={assessment}/>
+            </div>
 
             <div className={"flex flex-col gap-7"}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
