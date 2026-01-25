@@ -28,29 +28,31 @@ export default function ScopeDetails({grades}: Props) {
     const scopeByGrade = useMemo(() => {
         const map = new Map<string, string[]>();
         scope.forEach((entry) => {
-            map.set(entry.gradeId, entry.subjectIds);
+            map.set(entry.gradeId, entry.gradeSubjectIds ?? []);
         });
         return map;
     }, [scope]);
 
     const activeGrade = grades.find((grade) => grade.id === activeGradeId) ?? null;
-    const activeSubjectIds = activeGrade ? scopeByGrade.get(activeGrade.id) ?? [] : [];
+    const activeGradeSubjectIds = activeGrade ? (scopeByGrade.get(activeGrade.id) ?? []) : [];
 
-    const toggleSubject = (gradeId: string, subjectId: string | number, checked: boolean) => {
-        const sid = String(subjectId);
+    const toggleGradeSubject = (gradeId: string, gradeSubjectId: string | number, checked: boolean) => {
+        const gsId = String(gradeSubjectId);
         const scopeIndex = scope.findIndex((entry) => entry.gradeId === gradeId);
 
         if (checked) {
             if (scopeIndex === -1) {
-                append({ gradeId: String(gradeId), subjectIds: [sid] });
+                append({gradeId: String(gradeId), gradeSubjectIds: [gsId]});
                 return;
             }
 
             const current = scope[scopeIndex];
-            if (!current.subjectIds.includes(sid)) {
+            const currentIds = current.gradeSubjectIds ?? [];
+
+            if (!currentIds.includes(gsId)) {
                 update(scopeIndex, {
                     ...current,
-                    subjectIds: [...current.subjectIds, sid],
+                    gradeSubjectIds: [...currentIds, gsId],
                 });
             }
             return;
@@ -59,23 +61,26 @@ export default function ScopeDetails({grades}: Props) {
         if (scopeIndex === -1) return;
 
         const current = scope[scopeIndex];
-        const nextSubjectIds = current.subjectIds.filter((id) => id !== sid);
+        const currentIds = current.gradeSubjectIds ?? [];
+        const nextIds = currentIds.filter((id) => id !== gsId);
 
-        if (nextSubjectIds.length === 0) remove(scopeIndex);
-        else update(scopeIndex, { ...current, subjectIds: nextSubjectIds });
+        if (nextIds.length === 0) remove(scopeIndex);
+        else update(scopeIndex, {...current, gradeSubjectIds: nextIds});
     };
 
-    const toggleAllSubjectsForGrade = (gradeId: string, checked: boolean) => {
+    const toggleAllForGrade = (gradeId: string, checked: boolean) => {
         const grade = grades.find((g) => g.id === gradeId);
         if (!grade) return;
 
         const gid = String(gradeId);
-        const allIds = grade.subjects.map((s) => String(s.id));
+
+        const allGradeSubjectIds = grade.subjects.map((gs) => String(gs.id));
+
         const scopeIndex = scope.findIndex((entry) => entry.gradeId === gid);
 
         if (checked) {
-            if (scopeIndex === -1) append({ gradeId: gid, subjectIds: allIds });
-            else update(scopeIndex, { gradeId: gid, subjectIds: allIds });
+            if (scopeIndex === -1) append({gradeId: gid, gradeSubjectIds: allGradeSubjectIds});
+            else update(scopeIndex, {gradeId: gid, gradeSubjectIds: allGradeSubjectIds});
             return;
         }
 
@@ -89,8 +94,7 @@ export default function ScopeDetails({grades}: Props) {
             <ScopDetailsTitle/>
 
             {scopeErrorMessage && (
-                <div
-                    className="rounded-md border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
+                <div className="rounded-md border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
                     {scopeErrorMessage}
                 </div>
             )}
@@ -111,10 +115,10 @@ export default function ScopeDetails({grades}: Props) {
                 <div className="min-h-55 rounded-lg border bg-muted/30 p-4">
                     <SubjectPanel
                         grade={activeGrade}
-                        selectedSubjectIds={activeSubjectIds}
                         isSubmitting={isSubmitting}
-                        onToggleSubject={toggleSubject}
-                        onToggleAll={toggleAllSubjectsForGrade}
+                        onToggleAll={toggleAllForGrade}
+                        onToggleGradeSubject={toggleGradeSubject}
+                        selectedGradeSubjectIds={activeGradeSubjectIds}
                     />
                 </div>
             </FieldGroup>

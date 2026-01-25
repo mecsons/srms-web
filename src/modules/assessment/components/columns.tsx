@@ -28,6 +28,25 @@ export function getColumns(): ColumnDef<IAssessment>[] {
             cell: ({row}) => formatDateString(row.original.endDate)
         },
         {
+            header: "Created By",
+            cell: ({row}) => formatDateString(row.original.endDate)
+        },
+        {
+            header: "Created By",
+            cell: ({row}) => {
+                const {createdBy: {name}, createdAt} = row.original;
+
+                return (
+                    <div className="flex flex-col">
+                        <span>{name}</span>
+                        <span className="text-muted-foreground text-sm">
+                            {formatDateString(createdAt, {showTimestamp: true})}
+                        </span>
+                    </div>
+                );
+            },
+        },
+        {
             header: "Status",
             cell: ({row}) => getStatusBadge(row.original)
         },

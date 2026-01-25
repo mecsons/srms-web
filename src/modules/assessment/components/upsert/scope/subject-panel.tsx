@@ -1,25 +1,31 @@
 import {useMemo} from "react";
 import {Checkbox} from "@/components/ui/checkbox.tsx";
-import type {IGradeWithSubjects} from "@/modules/grade/lib/types.ts";
+import type {IGradeWithSubjects, IGradeSubject} from "@/modules/grade/lib/types.ts";
 import {SubjectItem} from "@/modules/assessment/components/upsert/scope/subject-item.tsx";
 
 interface Props {
     grade: IGradeWithSubjects | null;
-    selectedSubjectIds: string[];
+    selectedGradeSubjectIds: string[];
     isSubmitting: boolean;
-    onToggleSubject: (gradeId: string, subjectId: string, checked: boolean) => void;
     onToggleAll: (gradeId: string, checked: boolean) => void;
+    onToggleGradeSubject: (gradeId: string, gradeSubjectId: string, checked: boolean) => void;
 }
 
-export function SubjectPanel({...props}: Props) {
-    const {grade, selectedSubjectIds, isSubmitting, onToggleSubject, onToggleAll} = props;
+export function SubjectPanel(props: Props) {
+    const {
+        grade,
+        selectedGradeSubjectIds,
+        isSubmitting,
+        onToggleGradeSubject,
+        onToggleAll,
+    } = props;
 
     const isAllChecked = useMemo(() => {
         if (!grade || grade.subjects.length === 0) return false;
-        const allIds = grade.subjects.map((s) => String(s.id));
-        const selected = new Set(selectedSubjectIds);
+        const allIds = grade.subjects.map((gs) => String(gs.id)); // GradeSubject IDs
+        const selected = new Set(selectedGradeSubjectIds);
         return allIds.every((id) => selected.has(id));
-    }, [grade, selectedSubjectIds]);
+    }, [grade, selectedGradeSubjectIds]);
 
     if (!grade) {
         return (
@@ -43,9 +49,7 @@ export function SubjectPanel({...props}: Props) {
                     className="size-5"
                     checked={isAllChecked}
                     disabled={isSubmitting}
-                    onCheckedChange={(checked) =>
-                        onToggleAll(grade.id, checked === true)
-                    }
+                    onCheckedChange={(checked) => onToggleAll(grade.id, checked === true)}
                 />
             </div>
 
@@ -55,16 +59,19 @@ export function SubjectPanel({...props}: Props) {
                 </div>
             ) : (
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    {grade.subjects.map((subject) => (
-                        <SubjectItem
-                            key={subject.id}
-                            gradeId={grade.id}
-                            subject={subject}
-                            isDisabled={isSubmitting}
-                            onToggle={onToggleSubject}
-                            isChecked={selectedSubjectIds.includes(String(subject.id))}
-                        />
-                    ))}
+                    {grade.subjects.map((gradeSubject: IGradeSubject) => {
+                        const gsId = String(gradeSubject.id);
+                        return (
+                            <SubjectItem
+                                key={gsId}
+                                gradeId={grade.id}
+                                isDisabled={isSubmitting}
+                                gradeSubject={gradeSubject}
+                                onToggle={onToggleGradeSubject}
+                                isChecked={selectedGradeSubjectIds.includes(gsId)}
+                            />
+                        );
+                    })}
                 </div>
             )}
         </div>

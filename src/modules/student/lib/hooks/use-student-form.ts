@@ -2,7 +2,6 @@ import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {useNotifyToast} from '@/hooks/use-notify.ts'
 import type {IStudent} from "@/modules/student/lib/types.ts";
-import {useFormLocalStorage} from '@/hooks/use-local-storage.ts'
 import {useUpsertStudent} from '@/modules/student/lib/hooks/use-student-service.ts'
 import {defaultValues, studentSchema, type StudentSchemaType} from '@/modules/student/lib/validations/student.ts'
 
@@ -21,7 +20,7 @@ export function useStudentForm(gradeId: string, student?: IStudent, options?: { 
 
         return {
             ...defaultValues,
-            gradeId
+            gradeId: gradeId
         };
     };
 
@@ -30,8 +29,6 @@ export function useStudentForm(gradeId: string, student?: IStudent, options?: { 
         defaultValues: getDefaultValues(),
     })
 
-    const {clearLocalStorage} = useFormLocalStorage(form, 'studentDraft')
-
     const onSubmit = form.handleSubmit(async (values) => {
         try {
             await upsertStudent.mutateAsync({
@@ -39,7 +36,6 @@ export function useStudentForm(gradeId: string, student?: IStudent, options?: { 
                 studentId: student?.id,
             });
 
-            clearLocalStorage()
             form.reset()
 
             successToast(student ? "Student updated successfully" : "Student created successfully");

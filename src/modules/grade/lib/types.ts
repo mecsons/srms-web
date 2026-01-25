@@ -1,7 +1,4 @@
-interface ISubjectInGrade {
-  id: string;
-  name: string;
-}
+import type {ISubject} from "@/modules/subject/lib/types.ts";
 
 export interface IGrade {
     id: string
@@ -9,6 +6,11 @@ export interface IGrade {
     hierarchy: number
 }
 
+export interface IGradeSubject {
+    id: string;
+    subject: ISubject;
+}
+
 export interface IGradeWithSubjects extends IGrade {
-  subjects: ISubjectInGrade[];
+    subjects: IGradeSubject[];
 }

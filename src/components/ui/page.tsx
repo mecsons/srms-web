@@ -1,11 +1,13 @@
 import React from "react";
+import {cn} from "@/lib/utils.ts";
 
 interface PageProps {
     children: React.ReactNode;
+    className?: string;
 }
 
-export function Page({children}: PageProps) {
-    return <div className={"flex flex-col gap-5"}>{children}</div>;
+export function Page({children, className}: PageProps) {
+    return <div className={cn("flex flex-col gap-5", className)}>{children}</div>;
 }
 
 interface TitleProps {
@@ -18,7 +20,7 @@ export function PageTitle({ ...props }: TitleProps) {
 
     return (
         <div>
-            <h1 className="text-md font-medium leading-2.5">{title}</h1>
+            <h1 className="text-xl font-semibold leading-5.5">{title}</h1>
             {description && (
                 <span className="text-muted-foreground text-sm">{description}</span>
             )}

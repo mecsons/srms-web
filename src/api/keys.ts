@@ -1,16 +1,20 @@
 export const queryKeys = {
-  grades: {
-    all: ["grades"] as const,
-    withSubjects: ["grades", "withSubjects"] as const,
-  },
+    grades: {
+        all: ["grades"] as const,
+        withSubjects: ["grades", "withSubjects"] as const,
+    },
 
-  students: {
-    all: ["students"] as const,
-    byGrade: (gradeId: string) => ["students", gradeId] as const,
-  },
+    students: {
+        all: ["students"] as const,
+        byGrade: (gradeId: string) => ["students", String(gradeId)] as const,
+    },
 
-  assessments:{
-    all: ["assessments"] as const,
-    byId: (assessmentId: string) => ["assessments", assessmentId] as const,
-  }
+    assessments: {
+        all: ["assessments"] as const,
+        byId: (assessmentId: string) => ["assessments", String(assessmentId)] as const,
+    },
+
+    results: {
+        grade: (assId: string, resId: string) => ["results", String(assId), String(resId)] as const,
+    }
 }

@@ -14,7 +14,15 @@ export function formatAvatarName(name: string): string {
   return twoWords.map(word => word[0]).join('').toUpperCase();
 }
 
-export const formatDateString = (date: string) => {
-  const dateObj = new Date(date);
-  return format(dateObj, "dd MMM yyyy");
+
+export const formatDateString = (
+    date: string | Date,
+    options?:  { showTimestamp?: boolean; }
+) => {
+  const dateObj = typeof date === "string" ? new Date(date) : date;
+
+  return format(
+      dateObj,
+      options?.showTimestamp ? "dd MMM yyyy, hh:mm aa" : "MMM dd, yyyy"
+  );
 };
