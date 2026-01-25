@@ -67,17 +67,17 @@ const ProtectedAcademicsAssessmentsIndexRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/login': typeof PublicLoginRoute
   '/': typeof ProtectedIndexRoute
+  '/login': typeof PublicLoginRoute
   '/students/$gradeId': typeof ProtectedStudentsGradeIdRoute
-  '/academics': typeof ProtectedAcademicsIndexRoute
-  '/students': typeof ProtectedStudentsIndexRoute
-  '/academics/assessments': typeof ProtectedAcademicsAssessmentsIndexRoute
-  '/students/graduates': typeof ProtectedStudentsGraduatesIndexRoute
+  '/academics/': typeof ProtectedAcademicsIndexRoute
+  '/students/': typeof ProtectedStudentsIndexRoute
+  '/academics/assessments/': typeof ProtectedAcademicsAssessmentsIndexRoute
+  '/students/graduates/': typeof ProtectedStudentsGraduatesIndexRoute
 }
 export interface FileRoutesByTo {
-  '/login': typeof PublicLoginRoute
   '/': typeof ProtectedIndexRoute
+  '/login': typeof PublicLoginRoute
   '/students/$gradeId': typeof ProtectedStudentsGradeIdRoute
   '/academics': typeof ProtectedAcademicsIndexRoute
   '/students': typeof ProtectedStudentsIndexRoute
@@ -99,17 +99,17 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/login'
     | '/'
+    | '/login'
     | '/students/$gradeId'
-    | '/academics'
-    | '/students'
-    | '/academics/assessments'
-    | '/students/graduates'
+    | '/academics/'
+    | '/students/'
+    | '/academics/assessments/'
+    | '/students/graduates/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/login'
     | '/'
+    | '/login'
     | '/students/$gradeId'
     | '/academics'
     | '/students'
@@ -138,14 +138,14 @@ declare module '@tanstack/react-router' {
     '/_public': {
       id: '/_public'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof PublicRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_protected': {
       id: '/_protected'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof ProtectedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -166,14 +166,14 @@ declare module '@tanstack/react-router' {
     '/_protected/students/': {
       id: '/_protected/students/'
       path: '/students'
-      fullPath: '/students'
+      fullPath: '/students/'
       preLoaderRoute: typeof ProtectedStudentsIndexRouteImport
       parentRoute: typeof ProtectedRouteRoute
     }
     '/_protected/academics/': {
       id: '/_protected/academics/'
       path: '/academics'
-      fullPath: '/academics'
+      fullPath: '/academics/'
       preLoaderRoute: typeof ProtectedAcademicsIndexRouteImport
       parentRoute: typeof ProtectedRouteRoute
     }
@@ -187,14 +187,14 @@ declare module '@tanstack/react-router' {
     '/_protected/students/graduates/': {
       id: '/_protected/students/graduates/'
       path: '/students/graduates'
-      fullPath: '/students/graduates'
+      fullPath: '/students/graduates/'
       preLoaderRoute: typeof ProtectedStudentsGraduatesIndexRouteImport
       parentRoute: typeof ProtectedRouteRoute
     }
     '/_protected/academics/assessments/': {
       id: '/_protected/academics/assessments/'
       path: '/academics/assessments'
-      fullPath: '/academics/assessments'
+      fullPath: '/academics/assessments/'
       preLoaderRoute: typeof ProtectedAcademicsAssessmentsIndexRouteImport
       parentRoute: typeof ProtectedRouteRoute
     }
