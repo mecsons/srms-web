@@ -36,12 +36,12 @@ export function Scope({assessment}: Props) {
                                 </div>
 
                                 <div className="flex flex-wrap gap-3 mt-2">
-                                    {sc.subjects.map((s) => (
+                                    {sc.gradeSubjects.map((gs) => (
                                         <span
-                                            key={s.id}
+                                            key={gs.id}
                                             className="inline-flex items-center rounded-full border bg-muted px-2 py-1 text-xs font-medium"
                                         >
-                                            {s.name}
+                                            {gs.subject.name}
                                         </span>
                                     ))}
                                 </div>

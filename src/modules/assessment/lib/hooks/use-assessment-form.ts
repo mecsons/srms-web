@@ -24,9 +24,9 @@ export function useAssessmentForm(assessment?: IAssessment) {
             startDate: assessment.startDate,
             endDate: assessment.endDate,
             status: assessment.status,
-            scope: assessment.scope.map((item) => ({
-                gradeId: String(item.grade.id),
-                subjectIds: item.subjects.map((s) => String(s.id)),
+            scope: assessment.scope.map((scope) => ({
+                gradeId: String(scope.grade.id),
+                gradeSubjectIds: scope.gradeSubjects.map((gs) => String(gs.id)),
             })),
         };
     }, [assessment]);

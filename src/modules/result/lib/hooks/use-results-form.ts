@@ -22,16 +22,12 @@ export function useAssessmentResultsForm(results: IAssessmentResults) {
             const studentId = row.student.id;
 
             for (const col of subjectColumns) {
-                const subjectId = String(col.subjectId);
+                const gradeSubjectId = String(col.gradeSubjectId);
 
-                const cell = row.results?.[subjectId] ?? null;
+                const cell = row.results?.[gradeSubjectId] ?? null;
                 const score = cell?.score == null ? "" : String(cell.score);
 
-                formResults.push({
-                    studentId,
-                    subjectId,
-                    score,
-                });
+                formResults.push({studentId, gradeSubjectId: gradeSubjectId, score});
             }
         }
 
@@ -58,7 +54,7 @@ export function useAssessmentResultsForm(results: IAssessmentResults) {
                     .filter(r => r.score.trim() !== "")
                     .map(r => ({
                         studentId: (r.studentId),
-                        subjectId: (r.subjectId),
+                        gradeSubjectId: (r.gradeSubjectId),
                         score: (r.score),
                     })),
             });

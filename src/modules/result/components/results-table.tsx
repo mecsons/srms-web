@@ -29,14 +29,14 @@ export function ResultsTable({ results, isEditing }: Props) {
     const resultIndexMap = useMemo(() => {
         const map = new Map<string, number>();
         fields.forEach((field, index) => {
-            const key = `${field.studentId}-${field.subjectId}`;
+            const key = `${field.studentId}-${field.gradeSubjectId}`;
             map.set(key, index);
         });
         return map;
     }, [fields]);
 
-    const getFieldIndex = (studentId: string, subjectId: string) => {
-        return resultIndexMap.get(`${studentId}-${subjectId}`);
+    const getFieldIndex = (studentId: string, gradeSubjectId: string) => {
+        return resultIndexMap.get(`${studentId}-${gradeSubjectId}`);
     };
 
     const content = (
@@ -48,7 +48,7 @@ export function ResultsTable({ results, isEditing }: Props) {
                         <TableHead>Student</TableHead>
 
                         {subjectColumns.map((col) => (
-                            <TableHead key={col.subjectId!} className="text-center">
+                            <TableHead key={col.gradeSubjectId!} className="text-center">
                                 {col.name}
                             </TableHead>
                         ))}
@@ -79,21 +79,21 @@ export function ResultsTable({ results, isEditing }: Props) {
                                     <TableCell className="font-medium">{row.student.name}</TableCell>
 
                                     {subjectColumns.map((col) => {
-                                        const subjectId = String(col.subjectId!);
+                                        const gradeSubjectId = String(col.gradeSubjectId!);
 
                                         if (isEditing) {
-                                            const fieldIndex = getFieldIndex(studentId, subjectId);
+                                            const fieldIndex = getFieldIndex(studentId, gradeSubjectId);
 
                                             if (fieldIndex === undefined) {
                                                 return (
-                                                    <TableCell key={subjectId} className="text-center">
+                                                    <TableCell key={gradeSubjectId} className="text-center">
                                                         -
                                                     </TableCell>
                                                 );
                                             }
 
                                             return (
-                                                <TableCell key={subjectId} className="text-center">
+                                                <TableCell key={gradeSubjectId} className="text-center">
                                                     <FormField
                                                         control={form.control}
                                                         name={`results.${fieldIndex}.score`}
@@ -111,11 +111,11 @@ export function ResultsTable({ results, isEditing }: Props) {
                                                 </TableCell>
                                             );
                                         } else {
-                                            const cell = row.results?.[subjectId] ?? null;
+                                            const cell = row.results?.[gradeSubjectId] ?? null;
                                             const score = cell?.score ?? null;
 
                                             return (
-                                                <TableCell key={subjectId} className="text-center tabular-nums">
+                                                <TableCell key={gradeSubjectId} className="text-center tabular-nums">
                                                     {formatScore(score)}
                                                 </TableCell>
                                             );

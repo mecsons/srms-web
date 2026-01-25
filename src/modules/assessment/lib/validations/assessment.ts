@@ -2,10 +2,10 @@ import {z} from "zod";
 
 export const assessmentScopeItemSchema = z.object({
     gradeId: z.string().trim().nonempty("Grade ID is required"),
-    subjectIds: z
+    gradeSubjectIds: z
         .array(z.string().min(1))
-        .min(1, "At least one subject is required")
-        .refine((arr) => new Set(arr).size === arr.length, "Duplicate subject IDs are not allowed"),
+        .min(1, "At least one grade subject is required")
+        .refine((arr) => new Set(arr).size === arr.length, "Duplicate grade subject IDs are not allowed"),
 });
 
 export const assessmentScopeSchema = z

@@ -11,7 +11,7 @@ export interface IAssessmentResults {
     assessment: IAssessmentSummary;
     grade: IGrade;
     columns: {
-        subjectId: string | null;
+    gradeSubjectId: string | null;
         key: string | null;
         name: string;
     }[]

@@ -2,7 +2,7 @@ import {z} from "zod";
 
 const resultSchema = z.object({
     studentId: z.string().nonempty("Student ID is required"),
-    subjectId: z.string().nonempty("Subject ID is required"),
+    gradeSubjectId: z.string().nonempty("Grade Subject ID is required"),
     score: z.string().trim(),
 });
 

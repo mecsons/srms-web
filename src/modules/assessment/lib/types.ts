@@ -1,10 +1,9 @@
-import type { IUser } from "@/modules/auth/lib/types.ts";
-import type { IGrade } from "@/modules/grade/lib/types.ts";
-import type { ISubject } from "@/modules/subject/lib/types.ts";
-import type { IAcademicYear } from "@/modules/academic/lib/types.ts";
+import type {IUser} from "@/modules/auth/lib/types.ts";
+import type {IAcademicYear} from "@/modules/academic/lib/types.ts";
+import type {IGrade, IGradeSubject} from "@/modules/grade/lib/types.ts";
 
 interface IAssessmentStats {
-    scope:  {
+    scope: {
         gradeCount: number;
         subjectCount: number;
     };
@@ -12,7 +11,7 @@ interface IAssessmentStats {
 
 interface IAssessmentScope {
     grade: IGrade;
-    subjects: ISubject[];
+    gradeSubjects: IGradeSubject[];
 }
 
 export interface IAssessmentSummary {

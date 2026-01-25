@@ -5,7 +5,7 @@ export function formatScore(score: number | null) {
 }
 
 export function getSubjectColumns(results: IAssessmentResults) {
-    return results.columns.filter((c) => c.subjectId);
+    return results.columns.filter((c) => c.gradeSubjectId);
 }
 
 export function getAverageColumn(results: IAssessmentResults) {
