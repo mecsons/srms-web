@@ -18,6 +18,10 @@ import { Route as ProtectedAcademicsIndexRouteImport } from './routes/_protected
 import { Route as ProtectedStudentsGradeIdRouteImport } from './routes/_protected/students/$gradeId'
 import { Route as ProtectedStudentsGraduatesIndexRouteImport } from './routes/_protected/students/graduates/index'
 import { Route as ProtectedAcademicsAssessmentsIndexRouteImport } from './routes/_protected/academics/assessments/index'
+import { Route as ProtectedAcademicsAssessmentsAssessmentIdIndexRouteImport } from './routes/_protected/academics/assessments/$assessmentId/index'
+import { Route as ProtectedAcademicsAssessmentsUpsertCreateRouteImport } from './routes/_protected/academics/assessments/upsert/create'
+import { Route as ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRouteImport } from './routes/_protected/academics/assessments/upsert/edit.$assessmentId'
+import { Route as ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRouteImport } from './routes/_protected/academics/assessments/$assessmentId/results/$gradeId'
 
 const PublicRouteRoute = PublicRouteRouteImport.update({
   id: '/_public',
@@ -65,6 +69,30 @@ const ProtectedAcademicsAssessmentsIndexRoute =
     path: '/academics/assessments/',
     getParentRoute: () => ProtectedRouteRoute,
   } as any)
+const ProtectedAcademicsAssessmentsAssessmentIdIndexRoute =
+  ProtectedAcademicsAssessmentsAssessmentIdIndexRouteImport.update({
+    id: '/academics/assessments/$assessmentId/',
+    path: '/academics/assessments/$assessmentId/',
+    getParentRoute: () => ProtectedRouteRoute,
+  } as any)
+const ProtectedAcademicsAssessmentsUpsertCreateRoute =
+  ProtectedAcademicsAssessmentsUpsertCreateRouteImport.update({
+    id: '/academics/assessments/upsert/create',
+    path: '/academics/assessments/upsert/create',
+    getParentRoute: () => ProtectedRouteRoute,
+  } as any)
+const ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRoute =
+  ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRouteImport.update({
+    id: '/academics/assessments/upsert/edit/$assessmentId',
+    path: '/academics/assessments/upsert/edit/$assessmentId',
+    getParentRoute: () => ProtectedRouteRoute,
+  } as any)
+const ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRoute =
+  ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRouteImport.update({
+    id: '/academics/assessments/$assessmentId/results/$gradeId',
+    path: '/academics/assessments/$assessmentId/results/$gradeId',
+    getParentRoute: () => ProtectedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof ProtectedIndexRoute
@@ -74,6 +102,10 @@ export interface FileRoutesByFullPath {
   '/students/': typeof ProtectedStudentsIndexRoute
   '/academics/assessments/': typeof ProtectedAcademicsAssessmentsIndexRoute
   '/students/graduates/': typeof ProtectedStudentsGraduatesIndexRoute
+  '/academics/assessments/upsert/create': typeof ProtectedAcademicsAssessmentsUpsertCreateRoute
+  '/academics/assessments/$assessmentId/': typeof ProtectedAcademicsAssessmentsAssessmentIdIndexRoute
+  '/academics/assessments/$assessmentId/results/$gradeId': typeof ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRoute
+  '/academics/assessments/upsert/edit/$assessmentId': typeof ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof ProtectedIndexRoute
@@ -83,6 +115,10 @@ export interface FileRoutesByTo {
   '/students': typeof ProtectedStudentsIndexRoute
   '/academics/assessments': typeof ProtectedAcademicsAssessmentsIndexRoute
   '/students/graduates': typeof ProtectedStudentsGraduatesIndexRoute
+  '/academics/assessments/upsert/create': typeof ProtectedAcademicsAssessmentsUpsertCreateRoute
+  '/academics/assessments/$assessmentId': typeof ProtectedAcademicsAssessmentsAssessmentIdIndexRoute
+  '/academics/assessments/$assessmentId/results/$gradeId': typeof ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRoute
+  '/academics/assessments/upsert/edit/$assessmentId': typeof ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -95,6 +131,10 @@ export interface FileRoutesById {
   '/_protected/students/': typeof ProtectedStudentsIndexRoute
   '/_protected/academics/assessments/': typeof ProtectedAcademicsAssessmentsIndexRoute
   '/_protected/students/graduates/': typeof ProtectedStudentsGraduatesIndexRoute
+  '/_protected/academics/assessments/upsert/create': typeof ProtectedAcademicsAssessmentsUpsertCreateRoute
+  '/_protected/academics/assessments/$assessmentId/': typeof ProtectedAcademicsAssessmentsAssessmentIdIndexRoute
+  '/_protected/academics/assessments/$assessmentId/results/$gradeId': typeof ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRoute
+  '/_protected/academics/assessments/upsert/edit/$assessmentId': typeof ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -106,6 +146,10 @@ export interface FileRouteTypes {
     | '/students/'
     | '/academics/assessments/'
     | '/students/graduates/'
+    | '/academics/assessments/upsert/create'
+    | '/academics/assessments/$assessmentId/'
+    | '/academics/assessments/$assessmentId/results/$gradeId'
+    | '/academics/assessments/upsert/edit/$assessmentId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -115,6 +159,10 @@ export interface FileRouteTypes {
     | '/students'
     | '/academics/assessments'
     | '/students/graduates'
+    | '/academics/assessments/upsert/create'
+    | '/academics/assessments/$assessmentId'
+    | '/academics/assessments/$assessmentId/results/$gradeId'
+    | '/academics/assessments/upsert/edit/$assessmentId'
   id:
     | '__root__'
     | '/_protected'
@@ -126,6 +174,10 @@ export interface FileRouteTypes {
     | '/_protected/students/'
     | '/_protected/academics/assessments/'
     | '/_protected/students/graduates/'
+    | '/_protected/academics/assessments/upsert/create'
+    | '/_protected/academics/assessments/$assessmentId/'
+    | '/_protected/academics/assessments/$assessmentId/results/$gradeId'
+    | '/_protected/academics/assessments/upsert/edit/$assessmentId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -198,6 +250,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedAcademicsAssessmentsIndexRouteImport
       parentRoute: typeof ProtectedRouteRoute
     }
+    '/_protected/academics/assessments/$assessmentId/': {
+      id: '/_protected/academics/assessments/$assessmentId/'
+      path: '/academics/assessments/$assessmentId'
+      fullPath: '/academics/assessments/$assessmentId/'
+      preLoaderRoute: typeof ProtectedAcademicsAssessmentsAssessmentIdIndexRouteImport
+      parentRoute: typeof ProtectedRouteRoute
+    }
+    '/_protected/academics/assessments/upsert/create': {
+      id: '/_protected/academics/assessments/upsert/create'
+      path: '/academics/assessments/upsert/create'
+      fullPath: '/academics/assessments/upsert/create'
+      preLoaderRoute: typeof ProtectedAcademicsAssessmentsUpsertCreateRouteImport
+      parentRoute: typeof ProtectedRouteRoute
+    }
+    '/_protected/academics/assessments/upsert/edit/$assessmentId': {
+      id: '/_protected/academics/assessments/upsert/edit/$assessmentId'
+      path: '/academics/assessments/upsert/edit/$assessmentId'
+      fullPath: '/academics/assessments/upsert/edit/$assessmentId'
+      preLoaderRoute: typeof ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRouteImport
+      parentRoute: typeof ProtectedRouteRoute
+    }
+    '/_protected/academics/assessments/$assessmentId/results/$gradeId': {
+      id: '/_protected/academics/assessments/$assessmentId/results/$gradeId'
+      path: '/academics/assessments/$assessmentId/results/$gradeId'
+      fullPath: '/academics/assessments/$assessmentId/results/$gradeId'
+      preLoaderRoute: typeof ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRouteImport
+      parentRoute: typeof ProtectedRouteRoute
+    }
   }
 }
 
@@ -208,6 +288,10 @@ interface ProtectedRouteRouteChildren {
   ProtectedStudentsIndexRoute: typeof ProtectedStudentsIndexRoute
   ProtectedAcademicsAssessmentsIndexRoute: typeof ProtectedAcademicsAssessmentsIndexRoute
   ProtectedStudentsGraduatesIndexRoute: typeof ProtectedStudentsGraduatesIndexRoute
+  ProtectedAcademicsAssessmentsUpsertCreateRoute: typeof ProtectedAcademicsAssessmentsUpsertCreateRoute
+  ProtectedAcademicsAssessmentsAssessmentIdIndexRoute: typeof ProtectedAcademicsAssessmentsAssessmentIdIndexRoute
+  ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRoute: typeof ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRoute
+  ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRoute: typeof ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRoute
 }
 
 const ProtectedRouteRouteChildren: ProtectedRouteRouteChildren = {
@@ -218,6 +302,14 @@ const ProtectedRouteRouteChildren: ProtectedRouteRouteChildren = {
   ProtectedAcademicsAssessmentsIndexRoute:
     ProtectedAcademicsAssessmentsIndexRoute,
   ProtectedStudentsGraduatesIndexRoute: ProtectedStudentsGraduatesIndexRoute,
+  ProtectedAcademicsAssessmentsUpsertCreateRoute:
+    ProtectedAcademicsAssessmentsUpsertCreateRoute,
+  ProtectedAcademicsAssessmentsAssessmentIdIndexRoute:
+    ProtectedAcademicsAssessmentsAssessmentIdIndexRoute,
+  ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRoute:
+    ProtectedAcademicsAssessmentsAssessmentIdResultsGradeIdRoute,
+  ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRoute:
+    ProtectedAcademicsAssessmentsUpsertEditAssessmentIdRoute,
 }
 
 const ProtectedRouteRouteWithChildren = ProtectedRouteRoute._addFileChildren(
