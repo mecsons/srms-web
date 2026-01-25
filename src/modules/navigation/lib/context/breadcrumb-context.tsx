@@ -13,4 +13,3 @@ export const BreadcrumbProvider = ({children}: { children: ReactNode }) => {
         </BreadcrumbContext.Provider>
     );
 };
-
