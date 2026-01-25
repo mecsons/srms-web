@@ -23,6 +23,6 @@ export const formatDateString = (
 
   return format(
       dateObj,
-      options?.showTimestamp ? "dd MMM yyyy, hh:mm aa" : "dd MMM yyyy"
+      options?.showTimestamp ? "dd MMM yyyy, hh:mm aa" : "MMM dd, yyyy"
   );
 };

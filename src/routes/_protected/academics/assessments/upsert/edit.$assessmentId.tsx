@@ -3,7 +3,7 @@ import {FormProvider} from "react-hook-form";
 import {Button} from "@/components/ui/button.tsx";
 import {Spinner} from "@/components/ui/spinner.tsx";
 import {ErrorAlert} from "@/components/ui/alert.tsx";
-import {createFileRoute} from '@tanstack/react-router'
+import {createFileRoute, Navigate} from '@tanstack/react-router'
 import {Page, PageTitle} from "@/components/ui/page.tsx";
 import {Card, CardContent} from "@/components/ui/card.tsx";
 import ScopeDetails from "@/modules/assessment/components/upsert/scope";
@@ -29,6 +29,10 @@ function RouteComponent() {
     if (isPending || gradesPending) return <Spinner/>;
     if (error) return <ErrorAlert error={error}/>;
     if (gradesError) return <ErrorAlert error={gradesError}/>;
+
+    if (!existingAssessment.canEditAssessment) {
+        return <Navigate to="/academics/assessments" replace={true}/>
+    }
 
     return (
         <Page>

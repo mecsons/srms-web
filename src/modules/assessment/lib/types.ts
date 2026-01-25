@@ -33,4 +33,5 @@ export interface IAssessment {
     academicYear: IAcademicYear;
     createdBy: IUser;
     createdAt: string;
+    canEditAssessment: boolean;
 }

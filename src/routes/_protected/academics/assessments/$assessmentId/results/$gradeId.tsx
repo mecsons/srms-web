@@ -41,17 +41,15 @@ function AssessmentResults() {
                                 <X/>
                             </Button>
                         ) : (
-                            <>
-                                <Button size="icon" variant="outline" onClick={() => setIsEditing(true)}>
-                                    <Pencil/>
-                                </Button>
-
-                                <Button size="icon" variant="outline">
-                                    <Download/>
-                                </Button>
-                            </>
+                            <Button size="icon" variant="outline" onClick={() => setIsEditing(true)}>
+                                <Pencil/>
+                            </Button>
                         )
                     )}
+
+                    <Button size="icon" variant="outline">
+                        <Download/>
+                    </Button>
                 </div>
             </div>
 

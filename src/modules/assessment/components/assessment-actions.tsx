@@ -8,17 +8,21 @@ interface Props {
 }
 
 export function AssessmentActions({assessment}: Props) {
+    const {id: assessmentId, canEditAssessment} = assessment;
+
     return (
         <div className="space-x-3">
-            <Link to={"/academics/assessments/upsert/edit/$assessmentId"} params={{assessmentId: assessment.id}}>
-                <Button size="icon" variant="outline">
-                    <Pencil/>
-                </Button>
-            </Link>
+            {canEditAssessment && (
+                <Link to={"/academics/assessments/upsert/edit/$assessmentId"} params={{assessmentId: assessmentId}}>
+                    <Button size="icon" variant="outline">
+                        <Pencil/>
+                    </Button>
+                </Link>
+            )}
 
-            <Link to={"/academics/assessments/$assessmentId"} params={{assessmentId: assessment.id}}>
+            <Link to={"/academics/assessments/$assessmentId"} params={{assessmentId: assessmentId}}>
                 <Button size="icon" variant="outline">
-                    <FileText />
+                    <FileText/>
                 </Button>
             </Link>
         </div>
