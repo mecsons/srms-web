@@ -6,6 +6,8 @@ import {Page, PageTitle} from "@/components/ui/page.tsx";
 import {createFileRoute} from '@tanstack/react-router'
 import {useGetGrade} from "@/modules/grade/lib/hooks/use-grade-service.ts";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableSNCell} from "@/components/ui/table.tsx";
+import {AssignSubjectTeachers} from "@/modules/teacher/components/assign-subject-teachers.tsx";
+import {useGetAllTeachers} from "@/modules/teacher/lib/hooks/use-teacher-service.ts";
 
 export const Route = createFileRoute('/_protected/academics/grades/$gradeId')({
     component: GradeDetails,
@@ -15,11 +17,13 @@ function GradeDetails() {
     const {gradeId} = Route.useParams()
 
     const {error, isPending, data: gradeDetails} = useGetGrade(gradeId);
+    const {error: teachersError, isPending: teachersPending, data: allTeachers} = useGetAllTeachers();
 
-    if (isPending) return <Spinner/>;
+    if (isPending || teachersPending) return <Spinner/>;
     if (error) return <ErrorAlert error={error}/>;
+    if (teachersError) return <ErrorAlert error={teachersError}/>;
 
-    const {name:gradeName,stats, subjects }=gradeDetails;
+    const {name: gradeName, stats, subjects} = gradeDetails;
 
     return (
         <Page>
@@ -27,8 +31,8 @@ function GradeDetails() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
                 <StatCard title={"Students"} value={stats.enrolledStudentsCount}/>
-                <StatCard title={"Teachers"} value={stats.assignedTeachersCount}/>
                 <StatCard title={"Subjects"} value={stats.subjectsCount}/>
+                <StatCard title={"Assigned Teachers"} value={stats.assignedTeachersCount}/>
             </div>
 
             <CardTitle>Subjects</CardTitle>
@@ -39,15 +43,16 @@ function GradeDetails() {
                         <TableHead className="w-20">S/N</TableHead>
                         <TableHead>Subject</TableHead>
                         <TableHead>Assigned Teachers</TableHead>
+                        <TableHead></TableHead>
                     </TableRow>
                 </TableHeader>
 
                 <TableBody>
                     {subjects.length ? (
-                        subjects.map(({ subject, assignedTeachers }, index) => (
+                        subjects.map(({subject, assignedTeachers}, index) => (
                             <TableRow key={subject.id}>
                                 <TableCell>
-                                    <TableSNCell index={index} />
+                                    <TableSNCell index={index}/>
                                 </TableCell>
 
                                 <TableCell className="font-medium">
@@ -57,7 +62,15 @@ function GradeDetails() {
                                 <TableCell className="text-muted-foreground">
                                     {assignedTeachers.length
                                         ? assignedTeachers.map((t) => t.teacher.name).join(", ")
-                                        : "—"}
+                                        : "No teacher assigned"}
+                                </TableCell>
+
+                                <TableCell>
+                                    <AssignSubjectTeachers
+                                        gradeSubject={subject}
+                                        allTeachers={allTeachers}
+                                        assignedTeachers={assignedTeachers}
+                                    />
                                 </TableCell>
                             </TableRow>
                         ))
