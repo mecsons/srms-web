@@ -43,7 +43,7 @@ function GradeDetails() {
                         <TableHead className="w-20">S/N</TableHead>
                         <TableHead>Subject</TableHead>
                         <TableHead>Assigned Teachers</TableHead>
-                        <TableHead></TableHead>
+                        <TableHead className="w-20"></TableHead>
                     </TableRow>
                 </TableHeader>
 
@@ -66,11 +66,13 @@ function GradeDetails() {
                                 </TableCell>
 
                                 <TableCell>
-                                    <AssignSubjectTeachers
-                                        gradeSubject={subject}
-                                        allTeachers={allTeachers}
-                                        assignedTeachers={assignedTeachers}
-                                    />
+                                   <div className={"ml-2 sm:ml-0"}>
+                                       <AssignSubjectTeachers
+                                           gradeSubject={subject}
+                                           allTeachers={allTeachers}
+                                           assignedTeachers={assignedTeachers}
+                                       />
+                                   </div>
                                 </TableCell>
                             </TableRow>
                         ))
