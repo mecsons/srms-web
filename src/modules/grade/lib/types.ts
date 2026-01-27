@@ -9,6 +9,7 @@ export interface IGrade {
 
 export interface IGradeSubject {
     id: string;
+    gradeId: string;
     subject: ISubject;
 }
 

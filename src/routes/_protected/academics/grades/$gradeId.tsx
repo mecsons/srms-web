@@ -5,9 +5,9 @@ import {StatCard} from "@/components/ui/stat-card.tsx";
 import {Page, PageTitle} from "@/components/ui/page.tsx";
 import {createFileRoute} from '@tanstack/react-router'
 import {useGetGrade} from "@/modules/grade/lib/hooks/use-grade-service.ts";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableSNCell} from "@/components/ui/table.tsx";
-import {AssignSubjectTeachers} from "@/modules/teacher/components/assign-subject-teachers.tsx";
 import {useGetAllTeachers} from "@/modules/teacher/lib/hooks/use-teacher-service.ts";
+import {AssignSubjectTeachers} from "@/modules/teacher/components/assign-subject-teachers.tsx";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableSNCell} from "@/components/ui/table.tsx";
 
 export const Route = createFileRoute('/_protected/academics/grades/$gradeId')({
     component: GradeDetails,
@@ -59,7 +59,7 @@ function GradeDetails() {
                                     {subject.subject.name}
                                 </TableCell>
 
-                                <TableCell className="text-muted-foreground">
+                                <TableCell>
                                     {assignedTeachers.length
                                         ? assignedTeachers.map((t) => t.teacher.name).join(", ")
                                         : "No teacher assigned"}

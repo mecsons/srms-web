@@ -1,26 +1,28 @@
 import {useEffect, useMemo} from "react";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {useNotifyToast} from "@/hooks/use-notify.ts";
 import type {IGradeSubject} from "@/modules/grade/lib/types";
 import type {ITeacherAssignmentSummary} from "@/modules/teacher/lib/types";
+import {useAssignSubjectTeachers} from "@/modules/teacher/lib/hooks/use-teacher-service.ts";
 import {
     assignSubjectTeachersSchema,
     defaultValues,
     type AssignSubjectTeachersSchemaType,
 } from "@/modules/teacher/lib/validations/assign-subject-teachers";
-import {useNotifyToast} from "@/hooks/use-notify.ts";
 
-export function useAssignSubjectTeachersForm(subject: IGradeSubject, assignedTeachers: ITeacherAssignmentSummary[], options?: {
+export function useAssignSubjectTeachersForm(gradeSubject: IGradeSubject, assignedTeachers: ITeacherAssignmentSummary[], options?: {
     onSuccess?: () => void
 }) {
     const {successToast, errorToast} = useNotifyToast();
+    const assignSubjectTeachers = useAssignSubjectTeachers(gradeSubject.gradeId)
 
     const resolvedDefaults = useMemo<AssignSubjectTeachersSchemaType>(() => {
         return {
-            gradeSubjectId: subject.id,
+            gradeSubjectId: gradeSubject.id,
             teacherIds: assignedTeachers.map((a) => a.teacher.id),
         };
-    }, [subject.id, assignedTeachers]);
+    }, [gradeSubject.id, assignedTeachers]);
 
     const form = useForm<AssignSubjectTeachersSchemaType>({
         resolver: zodResolver(assignSubjectTeachersSchema),
@@ -35,7 +37,7 @@ export function useAssignSubjectTeachersForm(subject: IGradeSubject, assignedTea
 
     const onSubmit = form.handleSubmit(async (data) => {
         try {
-            console.log(data);
+            await assignSubjectTeachers.mutateAsync(data);
 
             form.reset()
             successToast("Assigned successfully");

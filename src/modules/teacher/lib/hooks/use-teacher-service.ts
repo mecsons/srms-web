@@ -3,6 +3,7 @@ import {api, handleServerError} from "@/api";
 import type {ITeacher} from "@/modules/teacher/lib/types.ts";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import type {TeacherSchemaType} from "@/modules/teacher/lib/validations/teacher.ts";
+import type {AssignSubjectTeachersSchemaType} from "@/modules/teacher/lib/validations/assign-subject-teachers.ts";
 
 const baseUrl = '/teachers'
 
@@ -43,6 +44,26 @@ export function useUpsertTeacher() {
         onSuccess: async () => {
             await queryClient.invalidateQueries({
                 queryKey: queryKeys.teachers.all,
+            });
+        },
+    });
+}
+
+export function useAssignSubjectTeachers(gradeId: string) {
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: async (data: AssignSubjectTeachersSchemaType) => {
+            try {
+                await api.post(`${baseUrl}/assignments`, data);
+            } catch (error) {
+                handleServerError(error);
+            }
+        },
+
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({
+                queryKey: queryKeys.grades.byId(gradeId),
             });
         },
     });

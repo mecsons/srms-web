@@ -56,6 +56,7 @@ export function AssignSubjectTeachers({gradeSubject, assignedTeachers, allTeache
     }, [teacherList, search]);
 
     const hasSearch = search.trim().length > 0;
+    const submitLabel = `Assign ${selectedCount > 0 ? selectedCount : ""} Teacher${selectedCount === 1 ? "" : "s"}`;
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -135,7 +136,7 @@ export function AssignSubjectTeachers({gradeSubject, assignedTeachers, allTeache
                         </DialogClose>
 
                         <Button type="submit" size={"sm"} disabled={!formIsDirty || formIsSubmitting}>
-                            Assign {selectedCount} Teacher{selectedCount === 1 ? "" : "s"}
+                            {submitLabel}
                         </Button>
                     </DialogFooter>
                 </form>
