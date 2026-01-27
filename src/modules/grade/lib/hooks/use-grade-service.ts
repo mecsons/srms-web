@@ -1,9 +1,25 @@
+import {queryKeys} from "@/api/keys.ts";
 import {api, handleServerError} from '@/api'
 import {useQuery} from '@tanstack/react-query'
-import type {IGrade, IGradeWithSubjects} from "@/modules/grade/lib/types.ts";
-import {queryKeys} from "@/api/keys.ts";
+import type {IGrade, IGradeDetails, IGradeWithSubjects} from "@/modules/grade/lib/types.ts";
 
 const baseUrl = '/grades'
+
+export function useGetGrade(gradeId: string) {
+    return useQuery({
+        queryKey: queryKeys.grades.byId(gradeId),
+        queryFn: async () => {
+            try {
+                const response = await api.get(`${baseUrl}/${gradeId}`);
+                const {payload} = response.data
+
+                return payload as IGradeDetails
+            } catch (error) {
+                handleServerError(error)
+            }
+        },
+    })
+}
 
 export function useGetAllGrades() {
     return useQuery({

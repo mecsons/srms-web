@@ -33,13 +33,11 @@ export function useStudentForm(gradeId: string, student?: IStudent, options?: { 
         try {
             await upsertStudent.mutateAsync({
                 data: values,
-                studentId: student?.id,
+                studentId: student?.id
             });
 
             form.reset()
-
             successToast(student ? "Student updated successfully" : "Student created successfully");
-
             options?.onSuccess?.();
         } catch (error) {
             errorToast(error)
