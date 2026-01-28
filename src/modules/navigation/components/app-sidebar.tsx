@@ -11,7 +11,7 @@ import {
     useSidebar,
 } from "@/components/ui/sidebar";
 import {Link} from "@tanstack/react-router";
-import {getNavItems} from "@/modules/navigation";
+import {getNavItems} from "@/modules/navigation/components/index.tsx";
 
 export function AppSidebar() {
     const {state} = useSidebar();

@@ -1,8 +1,10 @@
-import type {NavigationGroup} from "@/modules/navigation/types.ts";
+import type {NavigationGroup} from "@/modules/navigation/lib/types.ts";
 import {LayoutDashboard, GraduationCap, FileUser, FilePenLine, LayoutPanelLeft, Users} from "lucide-react";
+import {rolePresets} from "@/modules/auth/lib/utils.ts";
 
 export const navGroups: NavigationGroup[] = [
     {
+        roles: rolePresets.all(),
         label: "Overview",
         items: [
             {
@@ -19,11 +21,13 @@ export const navGroups: NavigationGroup[] = [
                 path: "/students",
                 title: "Students",
                 icon: FileUser,
+                roles: rolePresets.academicStaff(),
             },
             {
                 path: "/students/graduates",
                 title: "Graduates",
                 icon: GraduationCap,
+                roles: rolePresets.admin(),
             },
         ],
     },
@@ -34,16 +38,19 @@ export const navGroups: NavigationGroup[] = [
                 path: "/academics/grades",
                 title: "Grades",
                 icon: LayoutPanelLeft,
+                roles: rolePresets.academicStaff(),
             },
             {
                 path: "/academics/teachers",
                 title: "Teachers",
-                icon: Users
+                icon: Users,
+                roles: rolePresets.academicAdmin(),
             },
             {
                 path: "/academics/assessments",
                 title: "Assessments",
                 icon: FilePenLine,
+                roles: rolePresets.studentsAndAcademicStaff(),
             },
         ],
     }

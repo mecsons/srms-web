@@ -1,6 +1,7 @@
 import {create} from "zustand";
+import {jwtDecode} from "jwt-decode";
 import {AuthService} from "@/modules/auth/lib/service/auth-service.ts";
-import type {IAuthState, LoginInput} from "@/modules/auth/lib/types.ts";
+import type {IAuthState, IAuthTokenPayload, LoginInput} from "@/modules/auth/lib/types.ts";
 
 export const useAuthStore = create<IAuthState>((set, get) => {
     const refreshInterval: NodeJS.Timeout | null = null;
@@ -13,11 +14,19 @@ export const useAuthStore = create<IAuthState>((set, get) => {
         loading: true,
         accessToken: null,
         currentUser: null,
+        roles: [],
 
         login: async (credentials: LoginInput) => {
             try {
                 const {accessToken, user} = await AuthService.userLogin(credentials);
-                set({accessToken, currentUser: user});
+                const decoded = jwtDecode<IAuthTokenPayload>(accessToken);
+                console.log(decoded);
+
+                set({
+                    accessToken,
+                    currentUser: user,
+                    roles: decoded.roles,
+                });
             } catch (error) {
                 throw error;
             }
@@ -26,7 +35,7 @@ export const useAuthStore = create<IAuthState>((set, get) => {
         logout: async (allDevices: boolean = true) => {
             set({loading: true});
             await AuthService.userLogout(allDevices);
-            set({accessToken: null, currentUser: null, loading: false});
+            set({accessToken: null, currentUser: null, roles: [], loading: false});
             clearRefreshInterval();
         },
 

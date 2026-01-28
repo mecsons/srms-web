@@ -1,5 +1,6 @@
 import type {LucideIcon} from "lucide-react";
 import type {LinkProps} from "@tanstack/react-router";
+import type {RoleType} from "@/modules/auth/lib/types.ts";
 
 export interface BreadcrumbItem {
     label: string;
@@ -17,9 +18,11 @@ export interface NavigationItemInterface {
     icon: LucideIcon;
     path: LinkProps["to"];
     params?: LinkProps["params"];
+    roles?: RoleType[];
 }
 
 export interface NavigationGroup {
     label?: string;
     items: NavigationItemInterface[];
+    roles?: RoleType[];
 }

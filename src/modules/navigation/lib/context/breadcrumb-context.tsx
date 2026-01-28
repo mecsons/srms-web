@@ -1,5 +1,5 @@
 import {createContext, type ReactNode, useState} from "react";
-import type {BreadcrumbContextValue, BreadcrumbItem} from "@/modules/navigation/types";
+import type {BreadcrumbContextValue, BreadcrumbItem} from "@/modules/navigation/lib/types.ts";
 
 export const BreadcrumbContext =
     createContext<BreadcrumbContextValue | undefined>(undefined);

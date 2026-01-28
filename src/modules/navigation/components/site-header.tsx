@@ -11,7 +11,7 @@ import {cn, formatAvatarName} from "@/lib/utils";
 import {useRouter} from "@tanstack/react-router";
 import {SidebarTrigger} from "@/components/ui/sidebar";
 import {Avatar, AvatarFallback} from "@/components/ui/avatar.tsx";
-import {useCurrentUser} from "@/modules/auth/lib/hooks/use-current-user.ts";
+import {useCurrentUser} from "@/modules/auth/lib/hooks/use-auth.ts";
 
 export function SiteHeader({className}: { className?: string }) {
     const {navigate} = useRouter();

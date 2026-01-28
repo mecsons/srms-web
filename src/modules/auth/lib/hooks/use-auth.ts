@@ -1,3 +1,4 @@
+import type {RoleType} from "@/modules/auth/lib/types.ts";
 import {useAuthStore} from "@/modules/auth/lib/hooks/use-auth-store.ts";
 
 export const useCurrentUser = () => {
@@ -15,3 +16,13 @@ export const useCurrentUser = () => {
         accessToken,
     };
 };
+
+export function useHasRole(role: RoleType) {
+    const roles = useAuthStore(s => s.roles);
+    return roles.includes(role);
+}
+
+export function useHasAnyRole(rolesToCheck: RoleType[]) {
+    const roles = useAuthStore(s => s.roles);
+    return rolesToCheck.some(r => roles.includes(r));
+}
