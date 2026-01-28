@@ -13,6 +13,21 @@ export const navGroups: NavigationGroup[] = [
         ],
     },
     {
+        label: "Students",
+        items: [
+            {
+                path: "/students",
+                title: "Students",
+                icon: FileUser,
+            },
+            {
+                path: "/students/graduates",
+                title: "Graduates",
+                icon: GraduationCap,
+            },
+        ],
+    },
+    {
         label: "Academics",
         items: [
             {
@@ -31,20 +46,5 @@ export const navGroups: NavigationGroup[] = [
                 icon: FilePenLine,
             },
         ],
-    },
-    {
-        label: "Students",
-        items: [
-            {
-                path: "/students",
-                title: "Students",
-                icon: FileUser,
-            },
-            {
-                path: "/students/graduates",
-                title: "Graduates",
-                icon: GraduationCap,
-            },
-        ],
-    },
+    }
 ];
