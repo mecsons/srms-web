@@ -7,6 +7,7 @@ import {Page, PageTitle} from "@/components/ui/page";
 import {createFileRoute} from "@tanstack/react-router";
 import {ResultsTable} from "@/modules/result/components/results-table";
 import {useGetAssessmentResult} from "@/modules/result/lib/hooks/use-result-service";
+import {useHasAnyRole} from "@/modules/auth/lib/hooks/use-auth.ts";
 
 export const Route = createFileRoute(
     "/_protected/academics/assessments/$assessmentId/results/$gradeId"
@@ -16,6 +17,7 @@ export const Route = createFileRoute(
 
 function AssessmentResults() {
     const {assessmentId, gradeId} = Route.useParams();
+    const isAllowedToEnterResults = useHasAnyRole(["ROLE_TEACHER"]);
     const {error, isPending, data: results} = useGetAssessmentResult(assessmentId, gradeId);
 
     const [isEditing, setIsEditing] = useState(false);
@@ -35,7 +37,7 @@ function AssessmentResults() {
                 <PageTitle title={`${assessment.name}, ${grade.name}`}/>
 
                 <div className="flex items-center gap-2">
-                    {canEnterResults && (
+                    {canEnterResults && isAllowedToEnterResults && (
                         isEditing ? (
                             <Button size="icon" variant="outline" onClick={() => setIsEditing(false)}>
                                 <X/>

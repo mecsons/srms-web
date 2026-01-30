@@ -16,6 +16,7 @@ export const Route = createFileRoute('/_protected/academics/grades/$gradeId')({
 
 function GradeDetails() {
     const {gradeId} = Route.useParams()
+    const canAssignTeachers = useHasAnyRole(["ROLE_ACADEMIC_ADMIN"]);
 
     const {error, isPending, data: gradeDetails} = useGetGrade(gradeId);
     const {error: teachersError, isPending: teachersPending, data: allTeachers} = useGetAllTeachers();
@@ -25,8 +26,6 @@ function GradeDetails() {
     if (teachersError) return <ErrorAlert error={teachersError}/>;
 
     const {name: gradeName, stats, subjects} = gradeDetails;
-
-    const canAssignTeachers = useHasAnyRole(["ROLE_ACADEMIC_ADMIN"]);
 
     return (
         <Page>
