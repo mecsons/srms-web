@@ -41,7 +41,7 @@ export function SiteHeader({className}: { className?: string }) {
 
                                 <div className={"flex flex-col"}>
                                     <span className={"text-md"}>{currentUser.name}</span>
-                                    <span className={"text-xs text-muted-foreground"}>{currentUser.phoneNumber}</span>
+                                    <span className={"text-xs text-muted-foreground"}>{currentUser.username}</span>
                                 </div>
                             </div>
                         </DropdownMenuLabel>

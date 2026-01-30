@@ -14,7 +14,7 @@ export function SearchInput({...props}: Props) {
         <Input
             value={search}
             placeholder="Search..."
-            className={cn("w-full md:w-64", className)}
+            className={cn("w-full md:w-65", className)}
             onChange={(e) => setSearch(e.target.value)}
         />
     )

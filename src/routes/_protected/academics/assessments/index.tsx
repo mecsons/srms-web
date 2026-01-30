@@ -1,13 +1,12 @@
 import {useState} from "react";
-import {FilePlus} from "lucide-react";
-import {Button} from "@/components/ui/button.tsx";
 import {Spinner} from "@/components/ui/spinner.tsx";
 import {ErrorAlert} from "@/components/ui/alert.tsx";
 import {Page, PageTitle} from "@/components/ui/page.tsx";
 import {DataTable} from "@/components/ui/data-table.tsx";
-import {createFileRoute, Link} from '@tanstack/react-router'
+import {createFileRoute} from '@tanstack/react-router'
 import {SearchInput} from "@/components/ui/search-input.tsx";
 import {getColumns} from "@/modules/assessment/components/columns.tsx";
+import {CreateAssessment} from "@/modules/assessment/components/upsert/cta.tsx";
 import {useGetAssessments} from "@/modules/assessment/lib/hooks/use-assessment-service.ts";
 
 export const Route = createFileRoute('/_protected/academics/assessments/')({
@@ -29,13 +28,7 @@ function Assessments() {
             <div className="flex justify-between items-center gap-3">
                 <SearchInput search={search} setSearch={setSearch}/>
 
-                <div className="flex items-center gap-2">
-                   <Link to={"/academics/assessments/upsert/create"}>
-                       <Button size={"icon"}>
-                           <FilePlus/>
-                       </Button>
-                   </Link>
-                </div>
+                <CreateAssessment/>
             </div>
 
             <DataTable
