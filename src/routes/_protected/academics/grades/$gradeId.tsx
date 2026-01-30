@@ -1,9 +1,10 @@
 import {Spinner} from "@/components/ui/spinner.tsx";
 import {ErrorAlert} from "@/components/ui/alert.tsx"
 import {CardTitle} from "@/components/ui/card.tsx";
+import {createFileRoute} from '@tanstack/react-router'
 import {StatCard} from "@/components/ui/stat-card.tsx";
 import {Page, PageTitle} from "@/components/ui/page.tsx";
-import {createFileRoute} from '@tanstack/react-router'
+import {useHasAnyRole} from "@/modules/auth/lib/hooks/use-auth.ts";
 import {useGetGrade} from "@/modules/grade/lib/hooks/use-grade-service.ts";
 import {useGetAllTeachers} from "@/modules/teacher/lib/hooks/use-teacher-service.ts";
 import {AssignSubjectTeachers} from "@/modules/teacher/components/assign-subject-teachers.tsx";
@@ -25,6 +26,8 @@ function GradeDetails() {
 
     const {name: gradeName, stats, subjects} = gradeDetails;
 
+    const canAssignTeachers = useHasAnyRole(["ROLE_ACADEMIC_ADMIN"]);
+
     return (
         <Page>
             <PageTitle title={gradeName!}/>
@@ -43,7 +46,7 @@ function GradeDetails() {
                         <TableHead className="w-20">S/N</TableHead>
                         <TableHead>Subject</TableHead>
                         <TableHead>Assigned Teachers</TableHead>
-                        <TableHead className="w-20"></TableHead>
+                        {canAssignTeachers && <TableHead className="w-20"></TableHead>}
                     </TableRow>
                 </TableHeader>
 
@@ -65,15 +68,17 @@ function GradeDetails() {
                                         : "No teacher assigned"}
                                 </TableCell>
 
-                                <TableCell>
-                                   <div className={"ml-2 sm:ml-0"}>
-                                       <AssignSubjectTeachers
-                                           gradeSubject={subject}
-                                           allTeachers={allTeachers}
-                                           assignedTeachers={assignedTeachers}
-                                       />
-                                   </div>
-                                </TableCell>
+                                {canAssignTeachers && (
+                                    <TableCell>
+                                        <div className="ml-2 sm:ml-0">
+                                            <AssignSubjectTeachers
+                                                gradeSubject={subject}
+                                                allTeachers={allTeachers}
+                                                assignedTeachers={assignedTeachers}
+                                            />
+                                        </div>
+                                    </TableCell>
+                                )}
                             </TableRow>
                         ))
                     ) : (
