@@ -4,10 +4,7 @@ import type {NavigationGroup, NavigationItemInterface} from "@/modules/navigatio
 /**
  * Check if user has access to a navigation item based on their roles
  */
-export function hasAccess(
-    userRoles: RoleType[],
-    allowedRoles?: RoleType[]
-): boolean {
+export function hasAccess(userRoles: RoleType[], allowedRoles?: RoleType[]): boolean {
     // If no roles specified, item is accessible to everyone
     if (!allowedRoles || allowedRoles.length === 0) {
         return true;
@@ -20,25 +17,18 @@ export function hasAccess(
 /**
  * Filter navigation items based on user roles
  */
-export function filterNavigationItems(
-    items: NavigationItemInterface[],
-    userRoles: RoleType[]
-): NavigationItemInterface[] {
-    return items.filter(item => hasAccess(userRoles, item.roles));
+export function filterNavigationItems(items: NavigationItemInterface[], userRoles: RoleType[]): NavigationItemInterface[] {
+    return items.filter(item => hasAccess(userRoles, item.visibleTo));
 }
 
 /**
  * Filter navigation groups based on user roles
  */
-export function filterNavigationGroups(
-    groups: NavigationGroup[],
-    userRoles: RoleType[]
-): NavigationGroup[] {
-    return groups
-        .filter(group => hasAccess(userRoles, group.roles))
-        .map(group => ({
-            ...group,
-            items: filterNavigationItems(group.items, userRoles)
-        }))
-        .filter(group => group.items.length > 0);
+export function filterNavigationGroups(groups: NavigationGroup[], userRoles: RoleType[]): NavigationGroup[] {
+   return groups
+    .filter(group => hasAccess(userRoles, group.visibleTo))
+    .map(group => ({
+      ...group,
+      navItems: filterNavigationItems(group.navItems, userRoles),
+    })).filter(group => group.navItems.length > 0);
 }

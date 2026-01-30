@@ -41,7 +41,7 @@ export function AppSidebar() {
                         )}
                         <SidebarGroupContent>
                             <SidebarMenu>
-                                {group.items.map((navItem, itemIndex) => (
+                                {group.navItems.map((navItem, itemIndex) => (
                                     <SidebarMenuItem key={`${groupIndex}-${itemIndex}`}>
                                         <SidebarMenuButton
                                             asChild

@@ -1,4 +1,6 @@
+import {useMemo} from "react";
 import type {RoleType} from "@/modules/auth/lib/types.ts";
+import {roleHierarchy} from "@/modules/auth/lib/utils.ts";
 import {useAuthStore} from "@/modules/auth/lib/hooks/use-auth-store.ts";
 
 export const useCurrentUser = () => {
@@ -18,11 +20,27 @@ export const useCurrentUser = () => {
 };
 
 export function useHasRole(role: RoleType) {
-    const roles = useAuthStore(s => s.roles);
-    return roles.includes(role);
+    const userRoles = useAuthStore(s => s.roles);
+
+    return useMemo(() => {
+        return userRoles.some(userRole =>
+            roleHierarchy[userRole]?.includes(role)
+        );
+    }, [userRoles, role]);
 }
 
-export function useHasAnyRole(rolesToCheck: RoleType[]) {
-    const roles = useAuthStore(s => s.roles);
-    return rolesToCheck.some(r => roles.includes(r));
+export function useHasAnyRole(rolesToCheck: readonly RoleType[]) {
+    const userRoles = useAuthStore((s) => s.roles);
+
+    const effectiveRoles = useMemo(() => {
+        const set = new Set<RoleType>();
+        for (const userRole of userRoles) {
+            for (const implied of roleHierarchy[userRole] ?? [userRole]) {
+                set.add(implied);
+            }
+        }
+        return set;
+    }, [userRoles]);
+
+    return rolesToCheck.some((r) => effectiveRoles.has(r));
 }

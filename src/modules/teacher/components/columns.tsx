@@ -14,6 +14,10 @@ export function getColumns() {
             accessorKey: "name",
         },
         {
+            header: "Username",
+            accessorKey: "username",
+        },
+        {
             header: "Phone",
             accessorKey: "phoneNumber",
         },

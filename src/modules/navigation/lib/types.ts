@@ -18,11 +18,11 @@ export interface NavigationItemInterface {
     icon: LucideIcon;
     path: LinkProps["to"];
     params?: LinkProps["params"];
-    roles?: RoleType[];
+    visibleTo?: RoleType[];
 }
 
 export interface NavigationGroup {
     label?: string;
-    items: NavigationItemInterface[];
-    roles?: RoleType[];
+    navItems: NavigationItemInterface[];
+    visibleTo?: RoleType[];
 }

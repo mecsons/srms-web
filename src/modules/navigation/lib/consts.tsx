@@ -1,56 +1,56 @@
+import {roleGroups} from "@/modules/auth/lib/utils.ts";
 import type {NavigationGroup} from "@/modules/navigation/lib/types.ts";
 import {LayoutDashboard, GraduationCap, FileUser, FilePenLine, LayoutPanelLeft, Users} from "lucide-react";
-import {rolePresets} from "@/modules/auth/lib/utils.ts";
 
 export const navGroups: NavigationGroup[] = [
     {
-        roles: rolePresets.all(),
         label: "Overview",
-        items: [
+        navItems: [
             {
                 path: "/",
                 title: "Home",
                 icon: LayoutDashboard,
             },
         ],
+        visibleTo:roleGroups.allUsers(),
     },
     {
         label: "Students",
-        items: [
+        navItems: [
             {
                 path: "/students",
                 title: "Students",
                 icon: FileUser,
-                roles: rolePresets.academicStaff(),
+                visibleTo: roleGroups.academicStaff(),
             },
             {
                 path: "/students/graduates",
                 title: "Graduates",
                 icon: GraduationCap,
-                roles: rolePresets.admin(),
+                visibleTo: roleGroups.adminOnly(),
             },
         ],
     },
     {
         label: "Academics",
-        items: [
+        navItems: [
             {
                 path: "/academics/grades",
                 title: "Grades",
                 icon: LayoutPanelLeft,
-                roles: rolePresets.academicStaff(),
+                visibleTo: roleGroups.academicStaff(),
             },
             {
                 path: "/academics/teachers",
                 title: "Teachers",
                 icon: Users,
-                roles: rolePresets.academicAdmin(),
+                visibleTo: roleGroups.adminAndAcademic(),
             },
             {
                 path: "/academics/assessments",
                 title: "Assessments",
                 icon: FilePenLine,
-                roles: rolePresets.studentsAndAcademicStaff(),
+                visibleTo: roleGroups.allUsers(),
             },
         ],
     }

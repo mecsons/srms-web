@@ -19,13 +19,11 @@ export const useAuthStore = create<IAuthState>((set, get) => {
         login: async (credentials: LoginInput) => {
             try {
                 const {accessToken, user} = await AuthService.userLogin(credentials);
-                const decoded = jwtDecode<IAuthTokenPayload>(accessToken);
-                console.log(decoded);
 
                 set({
                     accessToken,
                     currentUser: user,
-                    roles: decoded.roles,
+                    roles: jwtDecode<IAuthTokenPayload>(accessToken).roles,
                 });
             } catch (error) {
                 throw error;
@@ -43,12 +41,16 @@ export const useAuthStore = create<IAuthState>((set, get) => {
             try {
                 const {accessToken, user} = await AuthService.refreshToken();
 
-                if (!accessToken) {
+                if (!accessToken || !user) {
                     await get().logout();
                     return;
                 }
 
-                set({accessToken, currentUser: user});
+                set({
+                    accessToken,
+                    currentUser: user,
+                    roles: jwtDecode<IAuthTokenPayload>(accessToken).roles,
+                });
             } catch (error) {
                 console.error("Failed to refresh token", error);
             }
