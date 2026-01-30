@@ -14,6 +14,7 @@ import {Button} from "@/components/ui/button";
 import {useNotifyToast} from "@/hooks/use-notify";
 import {Upload, FileSpreadsheet, X} from "lucide-react";
 import {useImportStudents} from "@/modules/student/lib/hooks/use-student-service.ts";
+import {Visibility} from "@/modules/auth/components/visibility.tsx";
 
 type Props = {
     gradeId: string;
@@ -86,97 +87,99 @@ export function ImportStudents({gradeId}: Props) {
     };
 
     return (
-        <Dialog open={open} onOpenChange={onClose}>
-            <DialogTrigger asChild>
-                <Button variant="outline">
-                    <Upload/>
-                    <span className={"hidden md:inline"}>Import Students</span>
-                </Button>
-            </DialogTrigger>
+        <Visibility visibleTo={"ROLE_ADMIN"}>
+            <Dialog open={open} onOpenChange={onClose}>
+                <DialogTrigger asChild>
+                    <Button variant="outline">
+                        <Upload/>
+                        <span className={"hidden md:inline"}>Import Students</span>
+                    </Button>
+                </DialogTrigger>
 
-            <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                    <DialogTitle>Import Students</DialogTitle>
-                    <DialogDescription>
-                        Upload an Excel file (.xlsx/.xls). We'll import and attach students to this grade.
-                    </DialogDescription>
-                </DialogHeader>
+                <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                        <DialogTitle>Import Students</DialogTitle>
+                        <DialogDescription>
+                            Upload an Excel file (.xlsx/.xls). We'll import and attach students to this grade.
+                        </DialogDescription>
+                    </DialogHeader>
 
-                <div
-                    {...getRootProps()}
-                    className={[
-                        "rounded-lg border border-dashed p-4 transition",
-                        isDragActive ? "bg-muted" : "bg-background",
-                    ].join(" ")}
-                >
-                    <input {...getInputProps()} />
+                    <div
+                        {...getRootProps()}
+                        className={[
+                            "rounded-lg border border-dashed p-4 transition",
+                            isDragActive ? "bg-muted" : "bg-background",
+                        ].join(" ")}
+                    >
+                        <input {...getInputProps()} />
 
-                    <div className="flex flex-col gap-3">
-                        <div className="flex items-center gap-3">
-                            <FileSpreadsheet className="text-muted-foreground"/>
+                        <div className="flex flex-col gap-3">
+                            <div className="flex items-center gap-3">
+                                <FileSpreadsheet className="text-muted-foreground"/>
 
-                            <div className="flex-1">
-                                <p className="text-sm font-medium">
-                                    {isDragActive ? "Drop the file here..." : "Drag & drop the Excel file here"}
-                                </p>
-                                <p className="text-xs text-muted-foreground">
-                                    Or click the button below to choose a file.
-                                </p>
+                                <div className="flex-1">
+                                    <p className="text-sm font-medium">
+                                        {isDragActive ? "Drop the file here..." : "Drag & drop the Excel file here"}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground">
+                                        Or click the button below to choose a file.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
 
-                        {file ? (
-                            <div className="rounded-md bg-muted p-3">
-                                <p className="text-sm font-medium">{file.name}</p>
-                                <p className="text-xs text-muted-foreground">
-                                    {(file.size / 1024).toFixed(1)} KB
+                            {file ? (
+                                <div className="rounded-md bg-muted p-3">
+                                    <p className="text-sm font-medium">{file.name}</p>
+                                    <p className="text-xs text-muted-foreground">
+                                        {(file.size / 1024).toFixed(1)} KB
+                                    </p>
+                                </div>
+                            ) : null}
+
+                            {rejectionMessage ? (
+                                <p className="text-sm text-destructive">{rejectionMessage}</p>
+                            ) : null}
+
+                            {importStudents.isError ? (
+                                <p className="text-sm text-destructive">
+                                    Import failed. Please try again.
                                 </p>
-                            </div>
-                        ) : null}
+                            ) : null}
 
-                        {rejectionMessage ? (
-                            <p className="text-sm text-destructive">{rejectionMessage}</p>
-                        ) : null}
-
-                        {importStudents.isError ? (
-                            <p className="text-sm text-destructive">
-                                Import failed. Please try again.
-                            </p>
-                        ) : null}
-
-                        <div className="flex justify-center gap-2">
-                            <Button size={"sm"} type="button" variant="secondary" onClick={openFilePicker}
-                                    disabled={importStudents.isPending}>
-                                Choose File
-                            </Button>
-
-                            {file && (
-                                <Button
-                                    size={"sm"}
-                                    type="button"
-                                    variant="outline"
-                                    onClick={() => setFile(null)}
-                                    disabled={importStudents.isPending}
-                                >
-                                    <X/> Remove File
+                            <div className="flex justify-center gap-2">
+                                <Button size={"sm"} type="button" variant="secondary" onClick={openFilePicker}
+                                        disabled={importStudents.isPending}>
+                                    Choose File
                                 </Button>
-                            )}
+
+                                {file && (
+                                    <Button
+                                        size={"sm"}
+                                        type="button"
+                                        variant="outline"
+                                        onClick={() => setFile(null)}
+                                        disabled={importStudents.isPending}
+                                    >
+                                        <X/> Remove File
+                                    </Button>
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <DialogFooter>
-                    <DialogClose asChild>
-                        <Button type="button" variant="outline" disabled={importStudents.isPending}>
-                            Cancel
+                    <DialogFooter>
+                        <DialogClose asChild>
+                            <Button type="button" variant="outline" disabled={importStudents.isPending}>
+                                Cancel
+                            </Button>
+                        </DialogClose>
+
+                        <Button type="button" onClick={onImport} disabled={!canSubmit}>
+                            {importStudents.isPending ? "Importing..." : "Import Students"}
                         </Button>
-                    </DialogClose>
-
-                    <Button type="button" onClick={onImport} disabled={!canSubmit}>
-                        {importStudents.isPending ? "Importing..." : "Import Students"}
-                    </Button>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+        </Visibility>
     );
 }

@@ -8,9 +8,7 @@ interface Props {
 export function TeacherActions({teacher}: Props) {
     return (
         <div className="space-x-3">
-            <UpsertTeacher
-                teacher={teacher}
-            />
+            <UpsertTeacher teacher={teacher}/>
         </div>
     );
 }

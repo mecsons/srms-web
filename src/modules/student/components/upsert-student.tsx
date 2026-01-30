@@ -9,6 +9,7 @@ import type {IStudent} from "@/modules/student/lib/types.ts";
 import {
     Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
 } from '@/components/ui/dialog'
+import {Visibility} from "@/modules/auth/components/visibility.tsx";
 
 interface Props {
     gradeId: string
@@ -24,54 +25,56 @@ export function UpsertStudent({gradeId, student}: Props) {
     const submitLabel = isEdit ? "Update Student" : "Create Student";
 
     return (
-        <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-                {isEdit ? (
-                    <Button size="icon" variant="outline">
-                        <Pencil/>
-                    </Button>
-                ) : (
-                    <Button>
-                        <UserRoundPlus/>
-                        <span className={"hidden md:inline"}>Add Student</span>
-                    </Button>
-                )}
-            </DialogTrigger>
-
-            <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                    <DialogTitle>{title}</DialogTitle>
-                    <DialogDescription>Fill in the student details</DialogDescription>
-                </DialogHeader>
-
-                <form onSubmit={onSubmit}>
-                    <FieldGroup className="grid gap-4">
-                        <FormField
-                            label={'Name'}
-                            name={'name'}
-                            control={form.control}
-                            render={({field}) => <Input {...field} />}
-                        />
-
-                        <FormField
-                            label={'Phone Number'}
-                            name={'phoneNumber'}
-                            control={form.control}
-                            render={({field}) => <Input {...field} />}
-                        />
-                    </FieldGroup>
-
-                    <DialogFooter>
-                        <DialogClose asChild>
-                            <Button variant="outline">Cancel</Button>
-                        </DialogClose>
-
-                        <Button type="submit" disabled={formIsSubmitting}>
-                            {submitLabel}
+        <Visibility visibleTo={"ROLE_ADMIN"}>
+            <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                    {isEdit ? (
+                        <Button size="icon" variant="outline">
+                            <Pencil/>
                         </Button>
-                    </DialogFooter>
-                </form>
-            </DialogContent>
-        </Dialog>
+                    ) : (
+                        <Button>
+                            <UserRoundPlus/>
+                            <span className={"hidden md:inline"}>Add Student</span>
+                        </Button>
+                    )}
+                </DialogTrigger>
+
+                <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                        <DialogTitle>{title}</DialogTitle>
+                        <DialogDescription>Fill in the student details</DialogDescription>
+                    </DialogHeader>
+
+                    <form onSubmit={onSubmit}>
+                        <FieldGroup className="grid gap-4">
+                            <FormField
+                                label={'Name'}
+                                name={'name'}
+                                control={form.control}
+                                render={({field}) => <Input {...field} />}
+                            />
+
+                            <FormField
+                                label={'Phone Number'}
+                                name={'phoneNumber'}
+                                control={form.control}
+                                render={({field}) => <Input {...field} />}
+                            />
+                        </FieldGroup>
+
+                        <DialogFooter>
+                            <DialogClose asChild>
+                                <Button variant="outline">Cancel</Button>
+                            </DialogClose>
+
+                            <Button type="submit" disabled={formIsSubmitting}>
+                                {submitLabel}
+                            </Button>
+                        </DialogFooter>
+                    </form>
+                </DialogContent>
+            </Dialog>
+        </Visibility>
     )
 }
